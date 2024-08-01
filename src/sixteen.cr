@@ -35,29 +35,32 @@ module Sixteen
       slug
     end
 
-    def context
+    # The separator is configurable because the base16 spec
+    # requires names like `foo-bar` but some template systems
+    # don't like those
+    def context(separator : String = "-")
       data = Hash(String, Bool | String | Int32 | Float64).new
 
-      data["scheme-name"] = name
-      data["scheme-author"] = author
-      data["scheme-description"] = description
-      data["scheme-slug"] = slug
-      data["scheme-slug-underscored"] = slug.gsub("-", "_")
-      data["scheme-system"] = system
-      data["scheme-variant"] = variant
-      data["scheme-is-#{variant}-variant"] = true
+      data["scheme-name".gsub("-", separator)] = name
+      data["scheme-author".gsub("-", separator)] = author
+      data["scheme-description".gsub("-", separator)] = description
+      data["scheme-slug".gsub("-", separator)] = slug
+      data["scheme-slug-underscored".gsub("-", separator)] = slug.gsub("-", "_")
+      data["scheme-system".gsub("-", separator)] = system
+      data["scheme-variant".gsub("-", separator)] = variant
+      data["scheme-is-#{variant}-variant".gsub("-", separator)] = true
       palette.each do |k, v|
-        data["#{k}-hex"] = v
-        data["#{k}-hex-bgr"] = v[4..5] + v[2..3] + v[..1]
-        data["#{k}-hex-r"] = v[..1]
-        data["#{k}-hex-g"] = v[2..3]
-        data["#{k}-hex-b"] = v[4..5]
-        data["#{k}-rgb-r"] = v[..1].to_i(16)
-        data["#{k}-rgb-g"] = v[2..3].to_i(16)
-        data["#{k}-rgb-b"] = v[4..5].to_i(16)
-        data["#{k}-dec-r"] = v[..1].to_i(16)/255
-        data["#{k}-dec-g"] = v[2..3].to_i(16)/255
-        data["#{k}-dec-b"] = v[4..5].to_i(16)/255
+        data["#{k}-hex".gsub("-", separator)] = v
+        data["#{k}-hex-bgr".gsub("-", separator)] = v[4..5] + v[2..3] + v[..1]
+        data["#{k}-hex-r".gsub("-", separator)] = v[..1]
+        data["#{k}-hex-g".gsub("-", separator)] = v[2..3]
+        data["#{k}-hex-b".gsub("-", separator)] = v[4..5]
+        data["#{k}-rgb-r".gsub("-", separator)] = v[..1].to_i(16)
+        data["#{k}-rgb-g".gsub("-", separator)] = v[2..3].to_i(16)
+        data["#{k}-rgb-b".gsub("-", separator)] = v[4..5].to_i(16)
+        data["#{k}-dec-r".gsub("-", separator)] = v[..1].to_i(16)/255
+        data["#{k}-dec-g".gsub("-", separator)] = v[2..3].to_i(16)/255
+        data["#{k}-dec-b".gsub("-", separator)] = v[4..5].to_i(16)/255
       end
       data
     end
