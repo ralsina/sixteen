@@ -71,6 +71,7 @@ module Sixteen
           v[0..1].to_u8(16),
         ).to_s
       end
+      pal
     end
 
     def to_s
