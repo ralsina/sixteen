@@ -1,0 +1,13 @@
+name: sixteen
+version: 0.1.0
+
+authors:
+  - Roberto Alsina <roberto.alsina@gmail.com>
+
+dependencies:
+  crustache:
+    github: MakeNowJust/crustache
+
+crystal: '>= 1.13.0'
+
+license: MIT
