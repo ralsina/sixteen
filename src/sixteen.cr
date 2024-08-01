@@ -64,7 +64,7 @@ module Sixteen
 
     def term_palette
       pal = ""
-      palette.each do |k, v|
+      palette.each do |_, v|
         pal += "  ".colorize.back(
           v[4..5].to_u8(16),
           v[2..3].to_u8(16),
@@ -75,12 +75,11 @@ module Sixteen
     end
 
     def to_s
-      doc = <<-DOC
-      Scheme: #{name}
-      Author: #{author}
-      Description: #{description}
-      Palette: #{term_palette}
-      DOC
+      doc = "Scheme:      #{name}\nAuthor:      #{author}\n"
+      doc += "Description: #{description}\n" unless description.empty?
+      doc += "Variant:     #{variant}\n" unless variant.empty?
+      doc += "Palette:     #{term_palette}\n"
+      doc
     end
   end
 

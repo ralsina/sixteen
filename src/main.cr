@@ -42,7 +42,6 @@ end
 
 if options["--info"]
   scheme = options["<scheme>"].as(String)
-  puts "Scheme: #{scheme}"
   puts Sixteen.theme(scheme).to_s
   exit 0
 end
