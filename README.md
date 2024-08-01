@@ -10,6 +10,10 @@ projects (I am not doing this for fun, I am doing it because I need it 🤣)
 
 For more information on base16, check [Tinted Theming](https://github.com/tinted-theming/home)
 
+As a bonus, this creates a binary, called `sixteen` that can
+render templates using the themes. You probably don't want to
+use it for anything ;-)
+
 ## Installation
 
 1. Add the dependency to your `shard.yml`:
@@ -28,7 +32,20 @@ For more information on base16, check [Tinted Theming](https://github.com/tinted
 require "sixteen"
 ```
 
-TODO: Write usage instructions here
+You can get a `Sixteen::Theme` object by name:
+
+```crystal
+Sixteen.theme("unikitty-dark")
+```
+
+You can get a template (in the Tinting Themes sense) parsed
+by path, and render it by passing a theme (be *very* careful
+about where the output goes!)
+
+```crystal
+template = Sixteen.template("i3")
+template.render(Sixteen.theme("unikitty-dark"))
+```
 
 ## Development
 
