@@ -18,7 +18,19 @@ module Sixteen
     property name : String
     property author : String
     property variant : String
+    property slug : String?
     property palette : Hash(String, String)
+    property description : String = ""
+
+    def slug : String
+      return slug unless @slug.nil?
+
+      slug = name.unicode_normalize(:nfkd)
+        .chars.reject! { |character|
+        !character.ascii_letter? && (character != ' ') && (character != '-')
+      }.join("").downcase.gsub(" ", "-")
+      slug
+    end
   end
 
   def self.theme(name : String) : Theme
