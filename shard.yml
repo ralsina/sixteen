@@ -4,10 +4,18 @@ version: 0.1.0
 authors:
   - Roberto Alsina <roberto.alsina@gmail.com>
 
+targets:
+  sixteen:
+    main: src/main.cr
+
 dependencies:
+  baked_file_system:
+    github: schovi/baked_file_system
+  crinja:
+    github: straight-shoota/crinja
   crustache:
     github: MakeNowJust/crustache
-
+        
 crystal: '>= 1.13.0'
 
 license: MIT
