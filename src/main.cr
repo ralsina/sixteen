@@ -32,10 +32,10 @@ end
 
 if options["--list"]
   puts "Available schemes:"
-  Sixteen::DataFiles.files.map { |f|
-    "  * #{File.basename(f.path, ".yaml")}"
-  }.sort!.each { |p|
-    puts p
+  Sixteen::DataFiles.files.map { |fname|
+    "  * #{File.basename(fname.path, ".yaml")}"
+  }.sort!.each { |name|
+    puts name
   }
   exit 0
 end
@@ -49,7 +49,7 @@ end
 if options["--build"]
   template = Sixteen.template options["<template>"].as(String)
   scheme = Sixteen.theme options["<scheme>"].as(String)
-  puts "Building theme from #{scheme} using #{template}"
+  template.render(scheme)
   exit 0
 end
 

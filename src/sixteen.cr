@@ -1,5 +1,7 @@
 require "baked_file_system"
 require "colorize"
+require "crustache"
+require "file_utils"
 require "yaml"
 
 module Sixteen
@@ -36,16 +38,14 @@ module Sixteen
     def context
       data = Hash(String, Bool | String | Int32 | Float64).new
 
-      data.merge({
-        "scheme-name"                  => name,
-        "scheme-author"                => author,
-        "scheme-description"           => description,
-        "scheme-slug"                  => slug,
-        "scheme-slug-underscored"      => slug.gsub("-", "_"),
-        "scheme-system"                => system,
-        "scheme-variant"               => variant,
-        "scheme-is-#{variant}-variant" => true,
-      })
+      data["scheme-name"] = name
+      data["scheme-author"] = author
+      data["scheme-description"] = description
+      data["scheme-slug"] = slug
+      data["scheme-slug-underscored"] = slug.gsub("-", "_")
+      data["scheme-system"] = system
+      data["scheme-variant"] = variant
+      data["scheme-is-#{variant}-variant"] = true
       palette.each do |k, v|
         data["#{k}-hex"] = v
         data["#{k}-hex-bgr"] = v[4..5] + v[2..3] + v[..1]
@@ -71,7 +71,6 @@ module Sixteen
           v[0..1].to_u8(16),
         ).to_s
       end
-      pal
     end
 
     def to_s
@@ -102,14 +101,36 @@ module Sixteen
       raise Exception.new(
         "Template has no filename and no output and extension"
       ) if output.nil? || extension.nil?
-      "{{#{output}}}/{{scheme-system}}-{{scheme-slug}}.{{#{extension}}}"
+      "#{output}/{{scheme-system}}-{{scheme-slug}}.#{extension.as(String).lstrip(".")}"
     end
   end
 
-  alias Template = Hash(String, TemplateFile)
+  class Template < Hash(String, TemplateFile)
+    property path : String
+
+    def initialize(@path)
+      super()
+      @path = path
+      parsed = Hash(String, TemplateFile).from_yaml(File.read("#{path}/config.yaml"))
+      self.merge!(parsed)
+    end
+
+    def render(theme : Theme)
+      context = theme.context
+      self.each do |k, v|
+        fname = Crustache.render(
+          Crustache.parse(v.filename.as(String)), context)
+        FileUtils.mkdir_p(File.dirname fname)
+        puts "Rendering #{fname} from #{path}/#{k}.mustache"
+        File.open(fname, "w") do |outf|
+          outf << Crustache.render(
+            Crustache.parse(File.read("#{path}/#{k}.mustache")), context)
+        end
+      end
+    end
+  end
 
   def self.template(path : String) : Template
-    tfile = File.open("#{path}/config.yaml")
-    Template.from_yaml(tfile.gets_to_end)
+    Template.new(path)
   end
 end
