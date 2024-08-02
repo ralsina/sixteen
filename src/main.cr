@@ -19,14 +19,13 @@ Usage:
   sixteen --interactive
 
 Options:
-    -h --help     Show this screen.
-    --list        List available schemes.
-    --info        Show information about a scheme.
-    --build       Build theme files from a tinted themes style template 
-                  folder and a scheme.
-    --render      Render a mustache template with a scheme and
-    --interactive Show an interactive menu to look at themes.
-    --version     Show version.
+    -h --help       Show this screen.
+    --list          List available schemes.
+    --info          Show information about a scheme.
+    --build         Build theme files from a tinted themes style template folder and a scheme.
+    --render        Render a mustache template with a scheme and
+    --interactive   Show an interactive menu to look at themes.
+    --version       Show version.
 DOCOPT
 
 options = Docopt.docopt(HELP, ARGV)
@@ -82,13 +81,16 @@ if options["--interactive"]
   k = ""
   STDIN.noecho do
     Lime.loop do
-      # Lime.clear
+
+      # Get some sizes we need
+      # Window.update
       wh = Window.height
       ww = Window.width
       max_tw = ww - list_w - 2
-      visible_names = names[offset..offset + wh]
+
 
       # Draw the list of themes on the left
+      visible_names = names[offset..offset + wh]
       visible_names.each_with_index do |name, i|
         if current == i + offset
           Lime.print ">>#{name}".ljust(list_w).colorize(:red).mode(:bold), 0, i
@@ -97,7 +99,7 @@ if options["--interactive"]
         end
       end
 
-      # Draw the theme info on the right
+      # Draw the current theme info on the right
       theme = Sixteen.theme(names[current])
       Lime.print "Name: #{theme.name}"[...max_tw].colorize(:white), list_w, 1
       Lime.print "Author: #{theme.author}"[...max_tw].colorize(:white), list_w, 2
@@ -113,7 +115,6 @@ if options["--interactive"]
         Lime.print (" "*(max_tw - 10)).colorize.back(r, g, b), list_w + 9, 6 + i
       }
       Lime.draw
-      # sleep 0.1.seconds
       k = Lime.get_key
       case k
       when "j", :up

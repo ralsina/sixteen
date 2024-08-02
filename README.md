@@ -11,8 +11,36 @@ projects (I am not doing this for fun, I am doing it because I need it 🤣)
 For more information on base16, check [Tinted Theming](https://github.com/tinted-theming/home)
 
 As a bonus, this creates a binary, called `sixteen` that can
-render templates using the themes. You probably don't want to
-use it for anything ;-)
+render templates using the themes.
+
+```
+Sixteen: a Tinted Themes builder
+
+It combines a templated as defined in the Tinted Themes
+specification with a color scheme to generate a theme file.
+
+Usage:
+  sixteen (-h | --help)
+  sixteen --list
+  sixteen --info <scheme>
+  sixteen --build <template> <scheme>
+  sixteen --render <template> <scheme>
+  sixteen --version
+  sixteen --interactive
+
+Options:
+    -h --help       Show this screen.
+    --list          List available schemes.
+    --info          Show information about a scheme.
+    --build         Build theme files from a tinted themes style template folder and a scheme.
+    --render        Render a mustache template with a scheme and
+    --interactive   Show an interactive menu to look at themes.
+    --version       Show version.
+```
+
+The interactive mode shows the themes and gives you some information about them.
+
+<script src="https://asciinema.org/a/iUKp8SyZEC3OHTByi8lLNY8Zf.js" id="asciicast-iUKp8SyZEC3OHTByi8lLNY8Zf" async="true"></script>
 
 ## Installation
 
