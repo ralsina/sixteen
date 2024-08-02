@@ -17,7 +17,9 @@ dependencies:
     github: MakeNowJust/crustache
   docopt:
     github: chenkovsky/docopt.cr
-        
+  lime:
+    github: r00ster91/lime
+            
 crystal: '>= 1.13.0'
 
 license: MIT
