@@ -1,4 +1,5 @@
 require "./sixteen"
+require "colorize"
 require "docopt"
 require "lime"
 
@@ -57,7 +58,7 @@ end
 
 if options["--interactive"]
   names = Sixteen::DataFiles.files.map { |fname|
-    "  #{File.basename(fname.path, ".yaml")}"
+    " #{File.basename(fname.path, ".yaml")}"
   }.sort!
   offset = 0
   current = 0
@@ -69,9 +70,9 @@ if options["--interactive"]
       visible_names = names[offset..offset + wh]
       visible_names.each_with_index do |name, i|
         if current == i + offset
-          Lime.print ">> #{name}", 0, i
+          Lime.print ">>#{name}".colorize.green.bold, 0, i
         else
-          Lime.print "   #{name}", 0, i
+          Lime.print "  #{name}", 0, i
         end
       end
       Lime.draw
