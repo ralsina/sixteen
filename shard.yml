@@ -16,7 +16,7 @@ dependencies:
   docopt:
     github: chenkovsky/docopt.cr
   lime:
-    github: r00ster91/lime
+    github: ralsina/lime
             
 crystal: '>= 1.13.0'
 
