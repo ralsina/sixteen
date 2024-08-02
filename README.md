@@ -40,7 +40,7 @@ Options:
 
 The interactive mode shows the themes and gives you some information about them.
 
-<script src="https://asciinema.org/a/iUKp8SyZEC3OHTByi8lLNY8Zf.js" id="asciicast-iUKp8SyZEC3OHTByi8lLNY8Zf" async="true"></script>
+[![asciicast](https://asciinema.org/a/iUKp8SyZEC3OHTByi8lLNY8Zf.svg)](https://asciinema.org/a/iUKp8SyZEC3OHTByi8lLNY8Zf)
 
 ## Installation
 
