@@ -11,8 +11,6 @@ targets:
 dependencies:
   baked_file_system:
     github: schovi/baked_file_system
-  crinja:
-    github: straight-shoota/crinja
   crustache:
     github: MakeNowJust/crustache
   docopt:
