@@ -22,6 +22,7 @@ Options:
     --list        List available schemes.
     --info        Show information about a scheme.
     --build       Build theme files from a template and a scheme.
+    --interactive Show an interactive menu to look at themes.
     --version     Show version.
 DOCOPT
 
