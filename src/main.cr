@@ -112,7 +112,7 @@ if options["--interactive"]
         g = color[2...4].to_u8(16)
         b = color[4...6].to_u8(16)
         Lime.print "#{key}:", list_w, 6 + i
-        Lime.print (" "*(max_tw - 10)).colorize.back(r, g, b), list_w + 9, 6 + i
+        Lime.print theme.palette[key].ljust(max_tw - 10).colorize.back(r, g, b), list_w + 9, 6 + i
       }
       Lime.draw
       k = Lime.get_key
