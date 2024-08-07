@@ -81,13 +81,11 @@ if options["--interactive"]
   k = ""
   STDIN.noecho do
     Lime.loop do
-
       # Get some sizes we need
       # Window.update
       wh = Window.height
       ww = Window.width
       max_tw = ww - list_w - 2
-
 
       # Draw the list of themes on the left
       visible_names = names[offset..offset + wh]
@@ -112,7 +110,11 @@ if options["--interactive"]
         g = color[2...4].to_u8(16)
         b = color[4...6].to_u8(16)
         Lime.print "#{key}:", list_w, 6 + i
-        Lime.print theme.palette[key].ljust(max_tw - 10).colorize.back(r, g, b), list_w + 9, 6 + i
+        if 0.0 + r + g + b > 384
+          Lime.print theme.palette[key].ljust(max_tw - 10).colorize(:black).back(r, g, b), list_w + 9, 6 + i
+        else
+          Lime.print theme.palette[key].ljust(max_tw - 10).colorize(:white).back(r, g, b), list_w + 9, 6 + i
+        end
       }
       Lime.draw
       k = Lime.get_key
