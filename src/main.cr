@@ -1,4 +1,5 @@
 require "./sixteen"
+require "./template_file"
 require "colorize"
 require "docopt"
 require "lime"
