@@ -80,6 +80,16 @@ module Sixteen
       doc += "Palette:     #{term_palette}\n"
       doc
     end
+
+    def [](key : String) : Color
+      key = "base#{key}" unless key.start_with?("base")
+      palette[key]
+    end
+
+    def [](key : Int) : Color
+      key = "base#{key.to_s(16)}"
+      palette[key]
+    end
   end
 
   def self.theme(name : String) : Theme
@@ -88,5 +98,4 @@ module Sixteen
   rescue BakedFileSystem::NoSuchFileError
     raise Exception.new("Theme not found: #{name}")
   end
-
 end
