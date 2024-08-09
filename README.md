@@ -5,8 +5,6 @@ Sixteen is a Crystal library to access Base-16 theme data.
 It embeds the whole base16 theme set, so you can use it in your applications without having to track things down and carry them
 around (the bad news: it adds about .5MB to your binary).
 
-The API is not defined yet, it will grow as I use it in other
-projects (I am not doing this for fun, I am doing it because I need it 🤣)
 
 For more information on base16, check [Tinted Theming](https://github.com/tinted-theming/home)
 
@@ -73,6 +71,14 @@ about where the output goes!)
 ```crystal
 template = Sixteen.template("i3")
 template.render(Sixteen.theme("unikitty-dark"))
+```
+
+Or just use the colors directly:
+
+```crystal
+theme = Sixteen.theme("unikitty-dark")
+puts theme["base00"].hex  # 212a31
+puts theme[0].r    # 33
 ```
 
 ## Development
