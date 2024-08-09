@@ -107,14 +107,11 @@ if options["--interactive"]
       theme.palette.keys.sort!.each_with_index { |key, i|
         break if 6 + i > wh
         color = theme.palette[key]
-        r = color[0...2].to_u8(16)
-        g = color[2...4].to_u8(16)
-        b = color[4...6].to_u8(16)
         Lime.print "#{key}:", list_w, 6 + i
-        if 0.0 + r + g + b > 384
-          Lime.print theme.palette[key].ljust(max_tw - 10).colorize(:black).back(r, g, b), list_w + 9, 6 + i
+        if color.light?
+          Lime.print theme.palette[key].hex.ljust(max_tw - 10).colorize(:black).back(color.colorize), list_w + 9, 6 + i
         else
-          Lime.print theme.palette[key].ljust(max_tw - 10).colorize(:white).back(r, g, b), list_w + 9, 6 + i
+          Lime.print theme.palette[key].hex.ljust(max_tw - 10).colorize(:white).back(color.colorize), list_w + 9, 6 + i
         end
       }
       Lime.draw

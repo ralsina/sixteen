@@ -1,3 +1,4 @@
+require "./color"
 require "baked_file_system"
 require "colorize"
 require "file_utils"
@@ -21,7 +22,7 @@ module Sixteen
     property author : String
     property variant : String
     property slug : String?
-    property palette : Hash(String, String)
+    property palette : Hash(String, Color)
     property description : String = ""
 
     def slug : String
@@ -49,17 +50,17 @@ module Sixteen
       data["scheme-variant".gsub("-", separator)] = variant
       data["scheme-is-#{variant}-variant".gsub("-", separator)] = true
       palette.each do |k, v|
-        data["#{k}-hex".gsub("-", separator)] = v
-        data["#{k}-hex-bgr".gsub("-", separator)] = v[4..5] + v[2..3] + v[..1]
-        data["#{k}-hex-r".gsub("-", separator)] = v[..1]
-        data["#{k}-hex-g".gsub("-", separator)] = v[2..3]
-        data["#{k}-hex-b".gsub("-", separator)] = v[4..5]
-        data["#{k}-rgb-r".gsub("-", separator)] = v[..1].to_i(16)
-        data["#{k}-rgb-g".gsub("-", separator)] = v[2..3].to_i(16)
-        data["#{k}-rgb-b".gsub("-", separator)] = v[4..5].to_i(16)
-        data["#{k}-dec-r".gsub("-", separator)] = v[..1].to_i(16)/255
-        data["#{k}-dec-g".gsub("-", separator)] = v[2..3].to_i(16)/255
-        data["#{k}-dec-b".gsub("-", separator)] = v[4..5].to_i(16)/255
+        data["#{k}-hex".gsub("-", separator)] = v.hex
+        data["#{k}-hex-bgr".gsub("-", separator)] = v.hex_bgr
+        data["#{k}-hex-r".gsub("-", separator)] = v.r.to_s(16)
+        data["#{k}-hex-g".gsub("-", separator)] = v.g.to_s(16)
+        data["#{k}-hex-b".gsub("-", separator)] = v.b.to_s(16)
+        data["#{k}-rgb-r".gsub("-", separator)] = v.r.to_s
+        data["#{k}-rgb-g".gsub("-", separator)] = v.g.to_s
+        data["#{k}-rgb-b".gsub("-", separator)] = v.b.to_s
+        data["#{k}-dec-r".gsub("-", separator)] = v.r/255
+        data["#{k}-dec-g".gsub("-", separator)] = v.g/255
+        data["#{k}-dec-b".gsub("-", separator)] = v.b/255
       end
       data
     end
@@ -67,11 +68,7 @@ module Sixteen
     def term_palette
       pal = ""
       palette.each do |_, v|
-        pal += "  ".colorize.back(
-          v[4..5].to_u8(16),
-          v[2..3].to_u8(16),
-          v[0..1].to_u8(16),
-        ).to_s
+        pal += "  ".colorize.back(v.colorize).to_s
       end
       pal
     end
