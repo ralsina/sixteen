@@ -106,12 +106,12 @@ if options["--interactive"]
       Lime.print "Variant: #{theme.variant}"[...max_tw].colorize(:white), list_w, 3 unless theme.variant.empty?
       theme.palette.keys.sort!.each_with_index { |key, i|
         break if 6 + i > wh
-        color = theme.palette[key]
+        color = theme[key]
         Lime.print "#{key}:", list_w, 6 + i
         if color.light?
-          Lime.print theme.palette[key].hex.ljust(max_tw - 10).colorize(:black).back(color.colorize), list_w + 9, 6 + i
+          Lime.print theme[key].hex.ljust(max_tw - 10).colorize(:black).back(color.colorize), list_w + 9, 6 + i
         else
-          Lime.print theme.palette[key].hex.ljust(max_tw - 10).colorize(:white).back(color.colorize), list_w + 9, 6 + i
+          Lime.print theme[key].hex.ljust(max_tw - 10).colorize(:white).back(color.colorize), list_w + 9, 6 + i
         end
       }
       Lime.draw

@@ -82,7 +82,7 @@ module Sixteen
     end
 
     def [](key : String) : Color
-      key = "base#{key}" unless key.start_with?("base")
+      key = "base#{key}" unless key.starts_with?("base")
       palette[key]
     end
 
