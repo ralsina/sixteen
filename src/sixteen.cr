@@ -6,7 +6,7 @@ require "yaml"
 
 module Sixteen
   extend self
-  VERSION = "0.2.0"
+  VERSION = "0.3.0"
 
   class DataFiles
     extend BakedFileSystem
