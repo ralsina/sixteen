@@ -20,7 +20,7 @@ development_dependencies:
     github: chenkovsky/docopt.cr
   lime:
     github: ralsina/lime
-            
+
 crystal: '>= 1.13.0'
 
 license: MIT

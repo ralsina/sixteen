@@ -14,9 +14,13 @@ scheme yaml file.
 
 ***Why is it all in one repo now?***
 
-Spec 0.10 was merged at the same time that base16 was forked from [Chris Kempson's](https://github.com/chriskempson) account. One of the changes of this version was moving all schemes to a single repo rather than separate repos and the fork was chosen as a convenient time to do this.
+Spec 0.10 was merged at the same time that base16 was forked from
+[Chris Kempson's](https://github.com/chriskempson) account. One of the
+changes of this version was moving all schemes to a single repo rather than
+separate repos and the fork was chosen as a convenient time to do this.
 
-When spec 0.11 was merged, we put schemes from all systems into one repo to simplify builders.
+When spec 0.11 was merged, we put schemes from all systems into one repo to
+simplify builders.
 
 [base16]: ./base16
 [base24]: ./base24

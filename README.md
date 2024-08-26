@@ -2,16 +2,16 @@
 
 Sixteen is a Crystal library to access Base-16 theme data.
 
-It embeds the whole base16 theme set, so you can use it in your applications without having to track things down and carry them
+It embeds the whole base16 theme set, so you can use it in your
+applications without having to track things down and carry them
 around (the bad news: it adds about .5MB to your binary).
-
 
 For more information on base16, check [Tinted Theming](https://github.com/tinted-theming/home)
 
 As a bonus, this creates a binary, called `sixteen` that can
 render templates using the themes.
 
-```
+```docopt
 Sixteen: a Tinted Themes builder
 
 It combines a templated as defined in the Tinted Themes
@@ -30,7 +30,8 @@ Options:
     -h --help       Show this screen.
     --list          List available schemes.
     --info          Show information about a scheme.
-    --build         Build theme files from a tinted themes style template folder and a scheme.
+    --build         Build theme files from a tinted themes style
+                    template folder and a scheme.
     --render        Render a mustache template with a scheme and
     --interactive   Show an interactive menu to look at themes.
     --version       Show version.
