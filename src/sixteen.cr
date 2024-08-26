@@ -87,8 +87,24 @@ module Sixteen
     end
 
     def [](key : Int) : Color
-      key = "base#{key.to_s(16)}"
-      palette[key]
+      palette["base#{key.to_s(16).rjust(2, '0').upcase}"]
+    end
+
+    # Returns the color in the palette that contrasts better
+    # with the given color
+    def contrasting(key : Int) : Color
+      color = self[key]
+      contrast = 0.0
+      contrast_key = 0
+      (0..15).each do |k|
+        next if k == key
+        c = self[k].contrast(color)
+        if c > contrast
+          contrast = c
+          contrast_key = k
+        end
+      end
+      self[contrast_key]
     end
   end
 

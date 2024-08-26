@@ -42,6 +42,16 @@ module Sixteen
       lighter(-amount)
     end
 
+    def contrast(other : Color)
+      l1 = self.hsl[2]
+      l2 = other.hsl[2]
+      if l1 > l2
+        (l1 + 0.05) / (l2 + 0.05)
+      else
+        (l2 + 0.05) / (l1 + 0.05)
+      end
+    end
+
     def hex : String
       "#{@r.to_s(16).rjust(2, '0')}#{@g.to_s(16).rjust(2, '0')}#{@b.to_s(16).rjust(2, '0')}"
     end

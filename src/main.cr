@@ -108,11 +108,8 @@ if options["--interactive"]
         break if 6 + i > wh
         color = theme[key]
         Lime.print "#{key}:", list_w, 6 + i
-        if color.light?
-          Lime.print theme[key].hex.ljust(max_tw - 10).colorize(:black).back(color.colorize), list_w + 9, 6 + i
-        else
-          Lime.print theme[key].hex.ljust(max_tw - 10).colorize(:white).back(color.colorize), list_w + 9, 6 + i
-        end
+        contrast = theme.contrasting(i)
+        Lime.print theme[key].hex.ljust(max_tw - 10).colorize(contrast.colorize).back(color.colorize), list_w + 9, 6 + i
       }
       Lime.draw
       k = Lime.get_key
