@@ -11,7 +11,17 @@ module Sixteen
   class DataFiles
     extend BakedFileSystem
 
-    bake_folder "../base16", __DIR__
+    macro bake_selected_themes
+      {% for theme in env("SIXTEEN_THEMES").split "," %}
+      bake_file {{ theme }}+".yaml", {{ read_file "base16/" + theme + ".yaml" }}
+      {% end %}
+    end
+
+    {% if flag?(:nothemes) %}
+      bake_selected_themes
+    {% else %}
+      bake_folder "../base16", __DIR__
+    {% end %}
   end
 
   struct Theme

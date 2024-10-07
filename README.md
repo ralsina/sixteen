@@ -82,6 +82,23 @@ puts theme["base00"].hex  # 212a31
 puts theme[0].r    # 33
 ```
 
+## Choosing what themes you want
+
+By default Sixteen will provide all the themes by embedding them in the binary.
+This makes the binary large! If you are using sixteen as a library, you may
+want to include just a few themes. To do that:
+
+* Pass the `-Dnothemes` flag to the compiler
+* Set the `SIXTEEN_THEMES` environment variable to a comma-separated
+  list of themes you want to include.
+
+This builds the theme browser with only the horizon-dark and horizon-light themes:
+
+```bash
+SIXTEEN_THEMES=horizon-dark,horizon-light shards build -Dnothemes
+```
+
+
 ## Development
 
 TODO: Write development instructions here
