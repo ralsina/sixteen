@@ -12,8 +12,10 @@ module Sixteen
     extend BakedFileSystem
 
     macro bake_selected_themes
+      {% if env("SIXTEEN_THEMES") %}
       {% for theme in env("SIXTEEN_THEMES").split "," %}
       bake_file {{ theme }}+".yaml", {{ read_file "base16/" + theme + ".yaml" }}
+      {% end %}
       {% end %}
     end
 

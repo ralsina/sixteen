@@ -71,6 +71,10 @@ if options["--render"]
 end
 
 if options["--interactive"]
+  if Sixteen::DataFiles.files.empty?
+    puts "This binary was built with no embedded themes, so no interactive mode is available."
+    exit 1
+  end
   names = Sixteen::DataFiles.files.select { |fname|
     fname.path.ends_with?(".yaml")
   }.map { |fname|
