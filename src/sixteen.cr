@@ -14,7 +14,7 @@ module Sixteen
     macro bake_selected_themes
       {% if env("SIXTEEN_THEMES") %}
       {% for theme in env("SIXTEEN_THEMES").split "," %}
-      bake_file {{ theme }}+".yaml", {{ read_file "base16/" + theme + ".yaml" }}
+      bake_file {{ theme }}+".yaml", {{ read_file "#{__DIR__}/../base16/" + theme + ".yaml" }}
       {% end %}
       {% end %}
     end
