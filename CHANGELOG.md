@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.2] - 2024-10-14
+
+### 🐛 Bug Fixes
+
+- Support choosing themes when used as a library
+
 ## [0.4.1] - 2024-10-14
 
 ### 🐛 Bug Fixes
 
 - Handle building with no themes at all (makes no sense)
+
+### Bump
+
+- Release v0.4.1
 
 ## [0.4.0] - 2024-10-07
 
