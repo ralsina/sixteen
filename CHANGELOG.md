@@ -2,11 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.0] - 2025-01-21
+
+### 🚀 Features
+
+- Updated to latest theme versions, 4 new ones
+
+### 🐛 Bug Fixes
+
+- Support choosing themes when used as a library
+- Handle hex colors with a #
+
 ## [0.4.1] - 2024-10-14
 
 ### 🐛 Bug Fixes
 
 - Handle building with no themes at all (makes no sense)
+
+### Bump
+
+- Release v0.4.1
 
 ## [0.4.0] - 2024-10-07
 
