@@ -15,6 +15,7 @@ module Sixteen
     end
 
     def initialize(hex : String)
+      hex = hex.lstrip("#")
       @r = hex[0...2].to_u8(16)
       @g = hex[2...4].to_u8(16)
       @b = hex[4...6].to_u8(16)
