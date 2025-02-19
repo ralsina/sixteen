@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.1] - 2025-02-19
+
+### 🐛 Bug Fixes
+
+- Clamp when converting from hsl to rgb to avoid overflow (fixes #1)
+
+### ⚙️ Miscellaneous Tasks
+
+- Fix test
+
+## [0.5.0] - 2025-01-21
+
+### Bump
+
+- Release v0.5.0
+
 ## [0.5.0] - 2025-01-21
 
 ### 🚀 Features
