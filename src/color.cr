@@ -27,9 +27,9 @@ module Sixteen
       else
         q = l < 0.5 ? l * (1 + s) : l + s - l * s
         p = 2 * l - q
-        @r = (hue2rgb(p, q, h + 1/3) * 255).to_u8
-        @g = (hue2rgb(p, q, h) * 255).to_u8
-        @b = (hue2rgb(p, q, h - 1/3) * 255).to_u8
+        @r = (hue2rgb(p, q, h + 1/3) * 255).clamp(0, 255).to_u8
+        @g = (hue2rgb(p, q, h) * 255).clamp(0, 255).to_u8
+        @b = (hue2rgb(p, q, h - 1/3) * 255).clamp(0, 255).to_u8
       end
     end
 
