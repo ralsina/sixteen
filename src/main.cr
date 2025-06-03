@@ -33,7 +33,7 @@ options = Docopt.docopt(HELP, ARGV)
 
 # Handle version manually
 if options["--version"]
-  puts "Crycco #{Sixteen::VERSION}"
+  puts "Sixteen #{Sixteen::VERSION}"
   exit 0
 end
 
