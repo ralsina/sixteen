@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.2] - 2025-06-03
+
+### 🐛 Bug Fixes
+
+- Wrong command name in the help
+
+### ⚙️ Miscellaneous Tasks
+
+- Automate AUR release
+- Ignore
+- Fix release script
+
 ## [0.5.1] - 2025-02-19
 
 ### 🐛 Bug Fixes
@@ -11,6 +23,10 @@ All notable changes to this project will be documented in this file.
 ### ⚙️ Miscellaneous Tasks
 
 - Fix test
+
+### Bump
+
+- Release v0.5.1
 
 ## [0.5.0] - 2025-01-21
 
