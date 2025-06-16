@@ -2,7 +2,7 @@
 
 set -e
 
-NAME=grafito
+NAME=sixteen
 
 rm -rf aur-${NAME}
 git clone ssh://aur@aur.archlinux.org/${NAME}.git aur-${NAME}
