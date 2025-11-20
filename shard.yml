@@ -17,7 +17,7 @@ development_dependencies:
   crustache:
     github: MakeNowJust/crustache
   docopt:
-    github: chenkovsky/docopt.cr
+    github: ralsina/docopt.cr
   lime:
     github: ralsina/lime
 
