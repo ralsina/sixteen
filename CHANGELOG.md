@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.5.3] - 2025-12-04
+## [0.5.4] - 2025-12-04
 
 ### 🐛 Bug Fixes
 
@@ -17,6 +17,10 @@ All notable changes to this project will be documented in this file.
 ### ◀️ Revert
 
 - Switch back to schovi/baked_file_system
+
+### Bump
+
+- Release v0.5.4
 
 ## [0.5.2] - 2025-06-03
 
