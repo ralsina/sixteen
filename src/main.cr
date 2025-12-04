@@ -39,7 +39,9 @@ end
 
 if options["--list"]
   puts "Available schemes:"
-  Sixteen::DataFiles.files.map { |fname|
+  Sixteen::DataFiles.files.select { |fname|
+    fname.path.ends_with?(".yaml")
+  }.map { |fname|
     "  * #{File.basename(fname.path, ".yaml")}"
   }.sort!.each { |name|
     puts name
