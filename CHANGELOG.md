@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.6.0] - 2025-12-10
+
+### 🚀 Features
+
+- Add 29 new base16 themes from latest tinted schemes
+- Add smart theme variant API with auto-generation
+
+### 🐛 Bug Fixes
+
+- Handle theme not found errors gracefully
+
+### ⚙️ Miscellaneous Tasks
+
+- AUR build
+- Changelog
+
 ## [0.5.4] - 2025-12-04
 
 ### 🐛 Bug Fixes

@@ -3,7 +3,8 @@
     "allow": [
       "Bash(crystal spec:*)",
       "Bash(make:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(./bin/sixteen:*)"
     ],
     "deny": [],
     "ask": []
