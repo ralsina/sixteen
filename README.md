@@ -2,9 +2,9 @@
 
 Sixteen is a Crystal library to access Base-16 theme data.
 
-It embeds the whole base16 theme set, so you can use it in your
+It embeds the whole base16 theme set (300+ themes), so you can use it in your
 applications without having to track things down and carry them
-around (the bad news: it adds about .5MB to your binary).
+around (the bad news: it adds about .6MB to your binary).
 
 For more information on base16, check [Tinted Theming](https://github.com/tinted-theming/home)
 

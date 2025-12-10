@@ -75,5 +75,5 @@ The `sixteen` binary supports:
 - Crystal version requirement: `>= 1.13.0`
 - Build flags: `-Dstrict_multi_assign -Dno_number_autocast` enforced
 - Pre-commit hooks handle formatting, YAML validation, and commit message standards
-- Binary size increases by ~0.5MB due to embedded themes
+- Binary size increases by ~0.6MB due to embedded 300+ themes
 - Uses 2-space indentation per `.editorconfig`
