@@ -51,25 +51,42 @@ end
 
 if options["--info"]
   scheme = options["<scheme>"].as(String)
-  puts Sixteen.theme(scheme).to_s
-  exit 0
+  begin
+    puts Sixteen.theme(scheme).to_s
+    exit 0
+  rescue Exception
+    STDERR.puts "Error: Theme not found: #{scheme}"
+    exit 1
+  end
 end
 
 if options["--build"]
   template = Sixteen.template options["<template>"].as(String)
-  scheme = Sixteen.theme options["<scheme>"].as(String)
-  template.render(scheme)
-  exit 0
+  scheme_name = options["<scheme>"].as(String)
+  begin
+    scheme = Sixteen.theme(scheme_name)
+    template.render(scheme)
+    exit 0
+  rescue Exception
+    STDERR.puts "Error: Theme not found: #{scheme_name}"
+    exit 1
+  end
 end
 
 if options["--render"]
   template = options["<template>"].as(String)
-  scheme = Sixteen.theme options["<scheme>"].as(String)
-  puts Crustache.render(
-    Crustache.parse(File.read(template)),
-    scheme.context
-  )
-  exit 0
+  scheme_name = options["<scheme>"].as(String)
+  begin
+    scheme = Sixteen.theme(scheme_name)
+    puts Crustache.render(
+      Crustache.parse(File.read(template)),
+      scheme.context
+    )
+    exit 0
+  rescue Exception
+    STDERR.puts "Error: Theme not found: #{scheme_name}"
+    exit 1
+  end
 end
 
 if options["--interactive"]
