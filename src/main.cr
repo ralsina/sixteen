@@ -13,9 +13,10 @@ specification with a color scheme to generate a theme file.
 Usage:
   sixteen (-h | --help)
   sixteen --list
-  sixteen --info <scheme>
-  sixteen --build <template> <scheme>
-  sixteen --render <template> <scheme>
+  sixteen --info <scheme> [--light | --dark]
+  sixteen --build <template> <scheme> [--light | --dark]
+  sixteen --render <template> <scheme> [--light | --dark]
+  sixteen --families
   sixteen --version
   sixteen --interactive
 
@@ -25,6 +26,9 @@ Options:
     --info          Show information about a scheme.
     --build         Build theme files from a tinted themes style template folder and a scheme.
     --render        Render a mustache template with a scheme and
+    --families      Show theme families (dark/light variant groups).
+    --light         Use light variant of the specified theme.
+    --dark          Use dark variant of the specified theme.
     --interactive   Show an interactive menu to look at themes.
     --version       Show version.
 DOCOPT
@@ -35,6 +39,17 @@ options = Docopt.docopt(HELP, ARGV)
 if options["--version"]
   puts "Sixteen #{Sixteen::VERSION}"
   exit 0
+end
+
+# Helper function to get theme with variant
+def get_theme_with_variant(scheme_name : String, opts) : Sixteen::Theme
+  if opts["--light"]
+    Sixteen.light_variant(scheme_name)
+  elsif opts["--dark"]
+    Sixteen.dark_variant(scheme_name)
+  else
+    Sixteen.theme(scheme_name)
+  end
 end
 
 if options["--list"]
@@ -52,7 +67,8 @@ end
 if options["--info"]
   scheme = options["<scheme>"].as(String)
   begin
-    puts Sixteen.theme(scheme).to_s
+    theme = get_theme_with_variant(scheme, options)
+    puts theme.to_s
     exit 0
   rescue Exception
     STDERR.puts "Error: Theme not found: #{scheme}"
@@ -64,7 +80,7 @@ if options["--build"]
   template = Sixteen.template options["<template>"].as(String)
   scheme_name = options["<scheme>"].as(String)
   begin
-    scheme = Sixteen.theme(scheme_name)
+    scheme = get_theme_with_variant(scheme_name, options)
     template.render(scheme)
     exit 0
   rescue Exception
@@ -77,7 +93,7 @@ if options["--render"]
   template = options["<template>"].as(String)
   scheme_name = options["<scheme>"].as(String)
   begin
-    scheme = Sixteen.theme(scheme_name)
+    scheme = get_theme_with_variant(scheme_name, options)
     puts Crustache.render(
       Crustache.parse(File.read(template)),
       scheme.context
@@ -87,6 +103,25 @@ if options["--render"]
     STDERR.puts "Error: Theme not found: #{scheme_name}"
     exit 1
   end
+end
+
+if options["--families"]
+  puts "Theme families (dark/light variant groups):"
+  puts
+
+  families = Sixteen.theme_families.select { |family|
+    !family.dark_themes.empty? && !family.light_themes.empty?
+  }.sort_by!(&.base_name)
+
+  families.each do |family|
+    puts "#{family.base_name}:"
+    puts "  Dark themes: #{family.dark_themes.join(", ")}" unless family.dark_themes.empty?
+    puts "  Light themes: #{family.light_themes.join(", ")}" unless family.light_themes.empty?
+    puts unless family == families.last?
+  end
+
+  puts "\nTotal families with both variants: #{families.size}"
+  exit 0
 end
 
 if options["--interactive"]

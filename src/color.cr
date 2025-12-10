@@ -120,5 +120,27 @@ module Sixteen
 
       {h, s, l}
     end
+
+    # Smart color inversion for theme generation
+    # Maintains color relationships while adapting brightness
+    def invert_for_theme(target : Symbol) : Color
+      h, s, l = hsl
+
+      case target
+      when :light
+        # Make light colors darker, dark colors lighter
+        # Preserve hue, adjust saturation and luminance
+        new_l = l < 0.3 ? 0.8 : (l > 0.7 ? 0.2 : 0.9 - l)
+        new_s = s * 0.8 # Slightly reduce saturation for readability
+        Color.new(h: h, s: new_s.clamp(0.0, 1.0), l: new_l.clamp(0.0, 1.0))
+      when :dark
+        # Make light colors darker, dark colors lighter
+        new_l = l < 0.3 ? 0.8 : (l > 0.7 ? 0.2 : 0.9 - l)
+        new_s = s * 0.9 # Keep most saturation for dark themes
+        Color.new(h: h, s: new_s.clamp(0.0, 1.0), l: new_l.clamp(0.0, 1.0))
+      else
+        self
+      end
+    end
   end
 end
