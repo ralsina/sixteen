@@ -48,7 +48,12 @@ def get_theme_with_variant(scheme_name : String, opts) : Sixteen::Theme
   elsif opts["--dark"]
     Sixteen.dark_variant(scheme_name)
   else
-    Sixteen.theme(scheme_name)
+    # Try with fallback for base name lookup
+    begin
+      Sixteen.theme(scheme_name)
+    rescue
+      Sixteen.theme_with_fallback(scheme_name)
+    end
   end
 end
 

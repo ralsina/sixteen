@@ -203,7 +203,7 @@ module Sixteen
 
   # Get light variant of a theme (existing or generated)
   def self.light_variant(theme_name : String) : Theme
-    theme = theme(theme_name)
+    theme = theme_with_fallback(theme_name, "light")
     return theme if theme.variant == "light"
 
     # Try to find existing light variant
@@ -218,7 +218,7 @@ module Sixteen
 
   # Get dark variant of a theme (existing or generated)
   def self.dark_variant(theme_name : String) : Theme
-    theme = theme(theme_name)
+    theme = theme_with_fallback(theme_name, "dark")
     return theme if theme.variant == "dark"
 
     # Try to find existing dark variant
@@ -287,6 +287,40 @@ module Sixteen
 
     available = available_themes
     candidates.find { |candidate| available.includes?(candidate) && candidate != theme_name }
+  end
+
+  # Find theme by name or base name with variant preference
+  def self.theme_with_fallback(name : String, preferred_variant : String? = nil) : Theme
+    # First try exact match
+    theme(name)
+  rescue
+    # Try to find theme by base name with preferred variant
+    available = available_themes
+    base_name = extract_base_name(name)
+
+    candidates = [] of String
+
+    case preferred_variant
+    when "light"
+      candidates << "#{base_name}-light"
+      candidates << "#{base_name}"
+    when "dark"
+      candidates << "#{base_name}-dark"
+      candidates << "#{base_name}"
+    else
+      # No preference, try dark first (most common)
+      candidates << "#{base_name}-dark"
+      candidates << "#{base_name}-light"
+      candidates << base_name
+    end
+
+    candidates.each do |candidate|
+      if available.includes?(candidate)
+        return theme(candidate)
+      end
+    end
+
+    raise Exception.new("Theme not found: #{name}")
   end
 
   def self.theme(name : String) : Theme

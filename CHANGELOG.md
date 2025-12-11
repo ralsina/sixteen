@@ -18,6 +18,10 @@ All notable changes to this project will be documented in this file.
 - AUR build
 - Changelog
 
+### Bump
+
+- Release v0.6.0
+
 ## [0.5.4] - 2025-12-04
 
 ### 🐛 Bug Fixes
