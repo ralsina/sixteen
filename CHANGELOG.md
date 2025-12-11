@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.6.1] - 2025-12-11
+
+### Bump
+
+- Release v0.6.0
+
 ## [0.6.0] - 2025-12-10
 
 ### 🚀 Features
