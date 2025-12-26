@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.6.2] - 2025-12-26
+
+### ⚙️ Miscellaneous Tasks
+
+- Fix version string forever
+
 ## [0.6.1] - 2025-12-11
 
 ### Bump
 
 - Release v0.6.0
+- Release v0.6.1
 
 ## [0.6.0] - 2025-12-10
 
