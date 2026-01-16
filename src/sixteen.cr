@@ -39,6 +39,19 @@ module Sixteen
     end
   end
 
+  struct ThemeFamilyInfo
+    property base_name : String
+    property dark_themes : Array(String)
+    property light_themes : Array(String)
+    property other_variants : Array(String)
+
+    def initialize(@base_name : String)
+      @dark_themes = [] of String
+      @light_themes = [] of String
+      @other_variants = [] of String
+    end
+  end
+
   struct Theme
     include YAML::Serializable
 
@@ -65,7 +78,7 @@ module Sixteen
 
       @slug = name.unicode_normalize(:nfkd)
         .chars.reject! { |character|
-        !character.ascii_letter? && (character != ' ') && (character != '-')
+        !(character.ascii_letter? || character.ascii_number?) && (character != ' ') && (character != '-')
       }.join("").downcase.gsub(" ", "-")
       @slug
     end
@@ -201,6 +214,46 @@ module Sixteen
     families.values.to_a
   end
 
+  # Get family info including auto-generated variants
+  def self.theme_family_info(theme_name : String) : ThemeFamilyInfo
+    base_name = extract_base_name(theme_name)
+    info = ThemeFamilyInfo.new(base_name)
+
+    # Collect existing themes in this family
+    available = available_themes
+    available.each do |name|
+      next if extract_base_name(name) != base_name
+
+      begin
+        theme = theme(name)
+        case theme.variant
+        when "dark"
+          info.dark_themes << name
+        when "light"
+          info.light_themes << name
+        else
+          info.other_variants << name
+        end
+      rescue
+      end
+    end
+
+    # Add auto-generated variants to the family lists
+    if info.dark_themes.empty? && !info.light_themes.empty?
+      source_theme = theme(info.light_themes.first)
+      auto_theme = source_theme.invert_for_theme(:dark)
+      info.dark_themes << auto_theme.slug
+    end
+
+    if info.light_themes.empty? && !info.dark_themes.empty?
+      source_theme = theme(info.dark_themes.first)
+      auto_theme = source_theme.invert_for_theme(:light)
+      info.light_themes << auto_theme.slug
+    end
+
+    info
+  end
+
   # Get light variant of a theme (existing or generated)
   def self.light_variant(theme_name : String) : Theme
     theme = theme_with_fallback(theme_name, "light")
@@ -328,5 +381,25 @@ module Sixteen
     Theme.from_yaml(tfile.gets_to_end)
   rescue BakedFileSystem::NoSuchFileError
     raise Exception.new("Theme not found: #{name}")
+  end
+
+  # Get theme context with family navigation info
+  def self.theme_with_family_context(theme_name : String, separator : String = "-") : Hash(String, Bool | String | Int32 | Float64)
+    theme = theme(theme_name)
+    family = theme_family_info(theme_name)
+    context = theme.context(separator)
+
+    # Add family navigation data
+    current_slug = theme.slug.empty? ? theme.name.downcase.gsub(" ", "-") : theme.slug
+
+    # Other variants (exclude current theme)
+    other_dark = family.dark_themes.reject { |family_theme| family_theme == theme_name || family_theme == current_slug }
+    other_light = family.light_themes.reject { |family_theme| family_theme == theme_name || family_theme == current_slug }
+
+    # Only add context keys if there are other variants
+    context["family-other-dark"] = other_dark.join(",") unless other_dark.empty?
+    context["family-other-light"] = other_light.join(",") unless other_light.empty?
+
+    context
   end
 end
