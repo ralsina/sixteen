@@ -87,16 +87,22 @@ def generate_theme(theme : Sixteen::Theme, slug : String, theme_name : String, g
     base_slug = slug.sub("-auto-light", "").sub("-auto-dark", "")
     if slug.includes?("-auto-light")
       # This is an auto-light theme, so show the original dark theme
-      context["family-other-dark"] = base_slug
-      context.delete("family-other-light")
+      context["family-other-dark-0"] = base_slug
+      context["family-other-dark-count"] = 1
+      # Clear any light variants
+      (0..9).each { |i| context.delete("family-other-light-#{i}") }
+      context["family-other-light-count"] = 0
       # Fix: Update variant for auto-generated themes
       context["scheme-variant"] = "light"
       context["scheme-is-light-variant"] = true
       context.delete("scheme-is-dark-variant")
     elsif slug.includes?("-auto-dark")
       # This is an auto-dark theme, so show the original light theme
-      context["family-other-light"] = base_slug
-      context.delete("family-other-dark")
+      context["family-other-light-0"] = base_slug
+      context["family-other-light-count"] = 1
+      # Clear any dark variants
+      (0..9).each { |i| context.delete("family-other-dark-#{i}") }
+      context["family-other-dark-count"] = 0
       # Fix: Update variant for auto-generated themes
       context["scheme-variant"] = "dark"
       context["scheme-is-dark-variant"] = true

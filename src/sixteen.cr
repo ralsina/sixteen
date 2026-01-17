@@ -396,9 +396,19 @@ module Sixteen
     other_dark = family.dark_themes.reject { |family_theme| family_theme == theme_name || family_theme == current_slug }
     other_light = family.light_themes.reject { |family_theme| family_theme == theme_name || family_theme == current_slug }
 
-    # Only add context keys if there are other variants
-    context["family-other-dark"] = other_dark.join(",") unless other_dark.empty?
-    context["family-other-light"] = other_light.join(",") unless other_light.empty?
+    # Add numbered keys for each variant (max 10)
+    other_dark.each_with_index do |variant, i|
+      break if i >= 10
+      context["family-other-dark-#{i}"] = variant
+    end
+    other_light.each_with_index do |variant, i|
+      break if i >= 10
+      context["family-other-light-#{i}"] = variant
+    end
+
+    # Add count for template to use
+    context["family-other-dark-count"] = other_dark.size
+    context["family-other-light-count"] = other_light.size
 
     context
   end
