@@ -11,7 +11,7 @@
   <main class="container">
     <p><a href="../index.html">&larr; Back to all themes</a></p>
     <h1>{{scheme-name}}</h1>
-    <p>by {{scheme-author}} &bull; {{scheme-variant}} variant</p>
+    <p>by {{scheme-author}}</p><p>{{scheme-description}}</p>
 
     <style>
       .family-nav {
@@ -86,7 +86,7 @@
     {{/family-other-dark}}
 
     <!-- Color palette strip -->
-    <div style="display: flex; height: 32px; margin: 1.5rem 0; border-radius: 4px; overflow: hidden;">
+    <div style=" border: 2px white solid; display: flex; height: 32px; margin: 1.5rem 0; border-radius: 4px; overflow: hidden;">
       <span style="background-color: #{{base00-hex}}; flex: 1;" title="base00"></span>
       <span style="background-color: #{{base01-hex}}; flex: 1;" title="base01"></span>
       <span style="background-color: #{{base02-hex}}; flex: 1;" title="base02"></span>
