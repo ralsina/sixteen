@@ -36,7 +36,7 @@ families = data.as_a.map do |family|
   <tr class="theme-row" onclick="window.location='#{slug}/index.html'">
     <td>
       <strong>#{name}</strong>
-      <div class="variants">#{variant_badges}#{auto_indicator}</div>
+      <div class="variants">#{variant_badges.join("")}#{auto_indicator}</div>
     </td>
     <td><small>#{author}</small></td>
     <td>
@@ -47,8 +47,6 @@ families = data.as_a.map do |family|
   </tr>
   ROW
 end
-
-pp! families[0]
 
 # Update header
 template = Crustache.parse(File.read(File.join(SCRIPT_DIR, "index.html.mustache")))

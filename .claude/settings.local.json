@@ -44,7 +44,8 @@
       "Bash(./gen_site.sh:*)",
       "Bash(echo:*)",
       "Bash(crystal tool format:*)",
-      "Skill(finishing-a-development-branch)"
+      "Skill(finishing-a-development-branch)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []
