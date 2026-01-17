@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brewer - Sixteen Theme</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <main class="container">
+    <p><a href="../index.html">&larr; Back to all themes</a></p>
+    <h1>Brewer</h1>
+    <p>by Timothée Poisot (http://github.com/tpoisot)</p><p></p>
+
+    <style>
+      .family-nav {
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        background: var(--pico-code-background-color);
+        border-radius: 4px;
+      }
+      .family-nav small {
+        font-size: 0.875rem;
+      }
+      /* Tartrazine syntax highlighting */
+      .codehilite { color: #b7b8b9; background-color: #2e2f30; }
+      .codehilite .nc { color: #756bb1; }
+      .codehilite .nf { color: #3182bd; }
+      .codehilite .nl { color: #e31a1c; }
+      .codehilite .nt { color: #dca060; }
+      .codehilite .k { color: #e6550d; }
+      .codehilite .s { color: #31a354; }
+      .codehilite .s1 { color: #b15928; }
+      .codehilite .s2 { color: #80b1d3; }
+      .codehilite .nb { color: #e31a1c; }
+      .codehilite .nv { color: #3182bd; }
+      .codehilite .bp { color: #e6550d; }
+      .codehilite .np { color: #dca060; }
+      .codehilite .no { color: #e31a1c; }
+      .codehilite .o { color: #e6550d; }
+      .codehilite .ow { color: #e6550d; }
+      .codehilite .mi { color: #e31a1c; }
+      .codehilite .l { color: #dca060; }
+      .codehilite .ld { color: #80b1d3; }
+      .codehilite .nx { color: #3182bd; }
+      .codehilite .nd { color: #e31a1c; }
+      .codehilite .ne { color: #e31a1c; }
+      .codehilite .ss { color: #31a354; }
+      .codehilite .sr { color: #b15928; }
+      .codehilite .s2 { color: #80b1d3; }
+      .codehilite .ni { color: #e31a1c; }
+      .codehilite .kp { color: #e6550d; }
+      .codehilite .nt { color: #dca060; }
+      .codehilite .kn { color: #e6550d; }
+      .codehilite .nf { color: #3182bd; }
+      .codehilite .nv { color: #756bb1; }
+      .codehilite .vc { color: #756bb1; }
+      .codehilite .vg { color: #3182bd; }
+      .codehilite .vi { color: #756bb1; }
+      .codehilite .nv { color: #3182bd; }
+      .codehilite .vf { color: #3182bd; }
+      .codehilite .nc { color: #756bb1; }
+      .codehilite .no { color: #e31a1c; }
+      .codehilite .s1 { color: #b15928; }
+      .codehilite .s2 { color: #80b1d3; }
+      .codehilite .nb { color: #e31a1c; }
+      .codehilite .pc { color: #e6550d; }
+      .codehilite .ps { color: #31a354; }
+      .codehilite .sc { color: #fcfdfe; }
+      .codehilite .kc { color: #e31a1c; }
+      .codehilite .kd { color: #e6550d; }
+      .codehilite .dl { color: #dca060; }
+    </style>
+
+    <p class="family-nav">
+      <small>Light variants: <a href="../brewer-auto-light/index.html">brewer-auto-light</a></small>
+    </p>
+
+
+    <!-- Color palette strip -->
+    <div style=" border: 2px white solid; display: flex; height: 32px; margin: 1.5rem 0; border-radius: 4px; overflow: hidden;">
+      <span style="background-color: #0c0d0e; flex: 1;" title="base00"></span>
+      <span style="background-color: #2e2f30; flex: 1;" title="base01"></span>
+      <span style="background-color: #515253; flex: 1;" title="base02"></span>
+      <span style="background-color: #737475; flex: 1;" title="base03"></span>
+      <span style="background-color: #959697; flex: 1;" title="base04"></span>
+      <span style="background-color: #b7b8b9; flex: 1;" title="base05"></span>
+      <span style="background-color: #dadbdc; flex: 1;" title="base06"></span>
+      <span style="background-color: #fcfdfe; flex: 1;" title="base07"></span>
+      <span style="background-color: #e31a1c; flex: 1;" title="base08"></span>
+      <span style="background-color: #e6550d; flex: 1;" title="base09"></span>
+      <span style="background-color: #dca060; flex: 1;" title="base0A"></span>
+      <span style="background-color: #31a354; flex: 1;" title="base0B"></span>
+      <span style="background-color: #80b1d3; flex: 1;" title="base0C"></span>
+      <span style="background-color: #3182bd; flex: 1;" title="base0D"></span>
+      <span style="background-color: #756bb1; flex: 1;" title="base0E"></span>
+      <span style="background-color: #b15928; flex: 1;" title="base0F"></span>
+    </div>
+
+    <article>
+      <header>Typography</header>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+
+      <h6>Code Example</h6>
+      <pre class="b codehilite"><code class="b"><span class="kn">def</span><span class="t"> </span><span class="nv">example_function</span><span class="t">(</span><span class="nv">a</span><span class="t">,</span><span class="nv">b</span><span class="t">)</span><span class="t">
+</span><span class="t">    </span><span class="t">puts</span><span class="t"> </span><span class="s">&quot;</span><span class="s">Hello, World!</span><span class="s">&quot;</span><span class="s"></span><span class="t">
+</span><span class="t">    </span><span class="kn">return</span><span class="t"> </span><span class="l">true</span><span class="t">
+</span><span class="kn">end</span><span class="t">
+</span></code></pre>
+
+      <h6>Data Table</h6>
+      <table role="grid" class="striped">
+        <thead>
+          <tr>
+            <th>Column</th>
+            <th>Data</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Item 1</td>
+            <td>Value 1</td>
+            <td>Description of first item</td>
+          </tr>
+          <tr>
+            <td>Item 2</td>
+            <td>Value 2</td>
+            <td>Description of second item</td>
+          </tr>
+          <tr>
+            <td>Item 3</td>
+            <td>Value 3</td>
+            <td>Description of third item</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h6>Form</h6>
+      <form>
+        <label for="name">Name
+          <input type="text" id="name" name="name" placeholder="Enter your name">
+        </label>
+        <div role="group">
+          <button type="button" class="secondary">Cancel</button>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </article>
+
+    <footer>
+      <hr>
+      <p><a href="../index.html">&larr; Back to all themes</a></p>
+    </footer>
+  </main>
+</body>
+</html>

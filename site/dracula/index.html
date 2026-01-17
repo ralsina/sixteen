@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dracula - Sixteen Theme</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <main class="container">
+    <p><a href="../index.html">&larr; Back to all themes</a></p>
+    <h1>Dracula</h1>
+    <p>by Jamy Golden (http://github.com/JamyGolden), based on Dracula Theme (http://github.com/dracula)</p><p></p>
+
+    <style>
+      .family-nav {
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        background: var(--pico-code-background-color);
+        border-radius: 4px;
+      }
+      .family-nav small {
+        font-size: 0.875rem;
+      }
+      /* Tartrazine syntax highlighting */
+      .codehilite { color: #f8f8f2; background-color: #363447; }
+      .codehilite .nc { color: #ff79c6; }
+      .codehilite .nf { color: #80bfff; }
+      .codehilite .nl { color: #ff5555; }
+      .codehilite .nt { color: #f1fa8c; }
+      .codehilite .k { color: #ffb86c; }
+      .codehilite .s { color: #50fa7b; }
+      .codehilite .s1 { color: #bd93f9; }
+      .codehilite .s2 { color: #8be9fd; }
+      .codehilite .nb { color: #ff5555; }
+      .codehilite .nv { color: #80bfff; }
+      .codehilite .bp { color: #ffb86c; }
+      .codehilite .np { color: #f1fa8c; }
+      .codehilite .no { color: #ff5555; }
+      .codehilite .o { color: #ffb86c; }
+      .codehilite .ow { color: #ffb86c; }
+      .codehilite .mi { color: #ff5555; }
+      .codehilite .l { color: #f1fa8c; }
+      .codehilite .ld { color: #8be9fd; }
+      .codehilite .nx { color: #80bfff; }
+      .codehilite .nd { color: #ff5555; }
+      .codehilite .ne { color: #ff5555; }
+      .codehilite .ss { color: #50fa7b; }
+      .codehilite .sr { color: #bd93f9; }
+      .codehilite .s2 { color: #8be9fd; }
+      .codehilite .ni { color: #ff5555; }
+      .codehilite .kp { color: #ffb86c; }
+      .codehilite .nt { color: #f1fa8c; }
+      .codehilite .kn { color: #ffb86c; }
+      .codehilite .nf { color: #80bfff; }
+      .codehilite .nv { color: #ff79c6; }
+      .codehilite .vc { color: #ff79c6; }
+      .codehilite .vg { color: #80bfff; }
+      .codehilite .vi { color: #ff79c6; }
+      .codehilite .nv { color: #80bfff; }
+      .codehilite .vf { color: #80bfff; }
+      .codehilite .nc { color: #ff79c6; }
+      .codehilite .no { color: #ff5555; }
+      .codehilite .s1 { color: #bd93f9; }
+      .codehilite .s2 { color: #8be9fd; }
+      .codehilite .nb { color: #ff5555; }
+      .codehilite .pc { color: #ffb86c; }
+      .codehilite .ps { color: #50fa7b; }
+      .codehilite .sc { color: #ffffff; }
+      .codehilite .kc { color: #ff5555; }
+      .codehilite .kd { color: #ffb86c; }
+      .codehilite .dl { color: #f1fa8c; }
+    </style>
+
+    <p class="family-nav">
+      <small>Light variants: <a href="../dracula-auto-light/index.html">dracula-auto-light</a></small>
+    </p>
+
+
+    <!-- Color palette strip -->
+    <div style=" border: 2px white solid; display: flex; height: 32px; margin: 1.5rem 0; border-radius: 4px; overflow: hidden;">
+      <span style="background-color: #282a36; flex: 1;" title="base00"></span>
+      <span style="background-color: #363447; flex: 1;" title="base01"></span>
+      <span style="background-color: #44475a; flex: 1;" title="base02"></span>
+      <span style="background-color: #6272a4; flex: 1;" title="base03"></span>
+      <span style="background-color: #9ea8c7; flex: 1;" title="base04"></span>
+      <span style="background-color: #f8f8f2; flex: 1;" title="base05"></span>
+      <span style="background-color: #f0f1f4; flex: 1;" title="base06"></span>
+      <span style="background-color: #ffffff; flex: 1;" title="base07"></span>
+      <span style="background-color: #ff5555; flex: 1;" title="base08"></span>
+      <span style="background-color: #ffb86c; flex: 1;" title="base09"></span>
+      <span style="background-color: #f1fa8c; flex: 1;" title="base0A"></span>
+      <span style="background-color: #50fa7b; flex: 1;" title="base0B"></span>
+      <span style="background-color: #8be9fd; flex: 1;" title="base0C"></span>
+      <span style="background-color: #80bfff; flex: 1;" title="base0D"></span>
+      <span style="background-color: #ff79c6; flex: 1;" title="base0E"></span>
+      <span style="background-color: #bd93f9; flex: 1;" title="base0F"></span>
+    </div>
+
+    <article>
+      <header>Typography</header>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+
+      <h6>Code Example</h6>
+      <pre class="b codehilite"><code class="b"><span class="kn">def</span><span class="t"> </span><span class="nv">example_function</span><span class="t">(</span><span class="nv">a</span><span class="t">,</span><span class="nv">b</span><span class="t">)</span><span class="t">
+</span><span class="t">    </span><span class="t">puts</span><span class="t"> </span><span class="s">&quot;</span><span class="s">Hello, World!</span><span class="s">&quot;</span><span class="s"></span><span class="t">
+</span><span class="t">    </span><span class="kn">return</span><span class="t"> </span><span class="l">true</span><span class="t">
+</span><span class="kn">end</span><span class="t">
+</span></code></pre>
+
+      <h6>Data Table</h6>
+      <table role="grid" class="striped">
+        <thead>
+          <tr>
+            <th>Column</th>
+            <th>Data</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Item 1</td>
+            <td>Value 1</td>
+            <td>Description of first item</td>
+          </tr>
+          <tr>
+            <td>Item 2</td>
+            <td>Value 2</td>
+            <td>Description of second item</td>
+          </tr>
+          <tr>
+            <td>Item 3</td>
+            <td>Value 3</td>
+            <td>Description of third item</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h6>Form</h6>
+      <form>
+        <label for="name">Name
+          <input type="text" id="name" name="name" placeholder="Enter your name">
+        </label>
+        <div role="group">
+          <button type="button" class="secondary">Cancel</button>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </article>
+
+    <footer>
+      <hr>
+      <p><a href="../index.html">&larr; Back to all themes</a></p>
+    </footer>
+  </main>
+</body>
+</html>

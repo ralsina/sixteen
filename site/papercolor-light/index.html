@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PaperColor Light - Sixteen Theme</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <main class="container">
+    <p><a href="../index.html">&larr; Back to all themes</a></p>
+    <h1>PaperColor Light</h1>
+    <p>by Jon Leopard (http://github.com/jonleopard), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)</p><p></p>
+
+    <style>
+      .family-nav {
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        background: var(--pico-code-background-color);
+        border-radius: 4px;
+      }
+      .family-nav small {
+        font-size: 0.875rem;
+      }
+      /* Tartrazine syntax highlighting */
+      .codehilite { color: #444444; background-color: #af0000; }
+      .codehilite .nc { color: #005faf; }
+      .codehilite .nf { color: #d75f00; }
+      .codehilite .nl { color: #bcbcbc; }
+      .codehilite .nt { color: #d70087; }
+      .codehilite .k { color: #d70000; }
+      .codehilite .s { color: #8700af; }
+      .codehilite .s1 { color: #005f87; }
+      .codehilite .s2 { color: #d75f00; }
+      .codehilite .nb { color: #bcbcbc; }
+      .codehilite .nv { color: #d75f00; }
+      .codehilite .bp { color: #d70000; }
+      .codehilite .np { color: #d70087; }
+      .codehilite .no { color: #bcbcbc; }
+      .codehilite .o { color: #d70000; }
+      .codehilite .ow { color: #d70000; }
+      .codehilite .mi { color: #bcbcbc; }
+      .codehilite .l { color: #d70087; }
+      .codehilite .ld { color: #d75f00; }
+      .codehilite .nx { color: #d75f00; }
+      .codehilite .nd { color: #bcbcbc; }
+      .codehilite .ne { color: #bcbcbc; }
+      .codehilite .ss { color: #8700af; }
+      .codehilite .sr { color: #005f87; }
+      .codehilite .s2 { color: #d75f00; }
+      .codehilite .ni { color: #bcbcbc; }
+      .codehilite .kp { color: #d70000; }
+      .codehilite .nt { color: #d70087; }
+      .codehilite .kn { color: #d70000; }
+      .codehilite .nf { color: #d75f00; }
+      .codehilite .nv { color: #005faf; }
+      .codehilite .vc { color: #005faf; }
+      .codehilite .vg { color: #d75f00; }
+      .codehilite .vi { color: #005faf; }
+      .codehilite .nv { color: #d75f00; }
+      .codehilite .vf { color: #d75f00; }
+      .codehilite .nc { color: #005faf; }
+      .codehilite .no { color: #bcbcbc; }
+      .codehilite .s1 { color: #005f87; }
+      .codehilite .s2 { color: #d75f00; }
+      .codehilite .nb { color: #bcbcbc; }
+      .codehilite .pc { color: #d70000; }
+      .codehilite .ps { color: #8700af; }
+      .codehilite .sc { color: #878787; }
+      .codehilite .kc { color: #bcbcbc; }
+      .codehilite .kd { color: #d70000; }
+      .codehilite .dl { color: #d70087; }
+    </style>
+
+
+    <p class="family-nav">
+      <small>Dark variants: <a href="../papercolor-dark/index.html">papercolor-dark</a></small>
+    </p>
+
+    <!-- Color palette strip -->
+    <div style=" border: 2px white solid; display: flex; height: 32px; margin: 1.5rem 0; border-radius: 4px; overflow: hidden;">
+      <span style="background-color: #eeeeee; flex: 1;" title="base00"></span>
+      <span style="background-color: #af0000; flex: 1;" title="base01"></span>
+      <span style="background-color: #008700; flex: 1;" title="base02"></span>
+      <span style="background-color: #5f8700; flex: 1;" title="base03"></span>
+      <span style="background-color: #0087af; flex: 1;" title="base04"></span>
+      <span style="background-color: #444444; flex: 1;" title="base05"></span>
+      <span style="background-color: #005f87; flex: 1;" title="base06"></span>
+      <span style="background-color: #878787; flex: 1;" title="base07"></span>
+      <span style="background-color: #bcbcbc; flex: 1;" title="base08"></span>
+      <span style="background-color: #d70000; flex: 1;" title="base09"></span>
+      <span style="background-color: #d70087; flex: 1;" title="base0A"></span>
+      <span style="background-color: #8700af; flex: 1;" title="base0B"></span>
+      <span style="background-color: #d75f00; flex: 1;" title="base0C"></span>
+      <span style="background-color: #d75f00; flex: 1;" title="base0D"></span>
+      <span style="background-color: #005faf; flex: 1;" title="base0E"></span>
+      <span style="background-color: #005f87; flex: 1;" title="base0F"></span>
+    </div>
+
+    <article>
+      <header>Typography</header>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+
+      <h6>Code Example</h6>
+      <pre class="b codehilite"><code class="b"><span class="kn">def</span><span class="t"> </span><span class="nv">example_function</span><span class="t">(</span><span class="nv">a</span><span class="t">,</span><span class="nv">b</span><span class="t">)</span><span class="t">
+</span><span class="t">    </span><span class="t">puts</span><span class="t"> </span><span class="s">&quot;</span><span class="s">Hello, World!</span><span class="s">&quot;</span><span class="s"></span><span class="t">
+</span><span class="t">    </span><span class="kn">return</span><span class="t"> </span><span class="l">true</span><span class="t">
+</span><span class="kn">end</span><span class="t">
+</span></code></pre>
+
+      <h6>Data Table</h6>
+      <table role="grid" class="striped">
+        <thead>
+          <tr>
+            <th>Column</th>
+            <th>Data</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Item 1</td>
+            <td>Value 1</td>
+            <td>Description of first item</td>
+          </tr>
+          <tr>
+            <td>Item 2</td>
+            <td>Value 2</td>
+            <td>Description of second item</td>
+          </tr>
+          <tr>
+            <td>Item 3</td>
+            <td>Value 3</td>
+            <td>Description of third item</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h6>Form</h6>
+      <form>
+        <label for="name">Name
+          <input type="text" id="name" name="name" placeholder="Enter your name">
+        </label>
+        <div role="group">
+          <button type="button" class="secondary">Cancel</button>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </article>
+
+    <footer>
+      <hr>
+      <p><a href="../index.html">&larr; Back to all themes</a></p>
+    </footer>
+  </main>
+</body>
+</html>

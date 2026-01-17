@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atelier Dune - Sixteen Theme</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <main class="container">
+    <p><a href="../index.html">&larr; Back to all themes</a></p>
+    <h1>Atelier Dune</h1>
+    <p>by Bram de Haan (http://atelierbramdehaan.nl)</p><p></p>
+
+    <style>
+      .family-nav {
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        background: var(--pico-code-background-color);
+        border-radius: 4px;
+      }
+      .family-nav small {
+        font-size: 0.875rem;
+      }
+      /* Tartrazine syntax highlighting */
+      .codehilite { color: #a6a28c; background-color: #292824; }
+      .codehilite .nc { color: #b854d4; }
+      .codehilite .nf { color: #6684e1; }
+      .codehilite .nl { color: #d73737; }
+      .codehilite .nt { color: #ae9513; }
+      .codehilite .k { color: #b65611; }
+      .codehilite .s { color: #60ac39; }
+      .codehilite .s1 { color: #d43552; }
+      .codehilite .s2 { color: #1fad83; }
+      .codehilite .nb { color: #d73737; }
+      .codehilite .nv { color: #6684e1; }
+      .codehilite .bp { color: #b65611; }
+      .codehilite .np { color: #ae9513; }
+      .codehilite .no { color: #d73737; }
+      .codehilite .o { color: #b65611; }
+      .codehilite .ow { color: #b65611; }
+      .codehilite .mi { color: #d73737; }
+      .codehilite .l { color: #ae9513; }
+      .codehilite .ld { color: #1fad83; }
+      .codehilite .nx { color: #6684e1; }
+      .codehilite .nd { color: #d73737; }
+      .codehilite .ne { color: #d73737; }
+      .codehilite .ss { color: #60ac39; }
+      .codehilite .sr { color: #d43552; }
+      .codehilite .s2 { color: #1fad83; }
+      .codehilite .ni { color: #d73737; }
+      .codehilite .kp { color: #b65611; }
+      .codehilite .nt { color: #ae9513; }
+      .codehilite .kn { color: #b65611; }
+      .codehilite .nf { color: #6684e1; }
+      .codehilite .nv { color: #b854d4; }
+      .codehilite .vc { color: #b854d4; }
+      .codehilite .vg { color: #6684e1; }
+      .codehilite .vi { color: #b854d4; }
+      .codehilite .nv { color: #6684e1; }
+      .codehilite .vf { color: #6684e1; }
+      .codehilite .nc { color: #b854d4; }
+      .codehilite .no { color: #d73737; }
+      .codehilite .s1 { color: #d43552; }
+      .codehilite .s2 { color: #1fad83; }
+      .codehilite .nb { color: #d73737; }
+      .codehilite .pc { color: #b65611; }
+      .codehilite .ps { color: #60ac39; }
+      .codehilite .sc { color: #fefbec; }
+      .codehilite .kc { color: #d73737; }
+      .codehilite .kd { color: #b65611; }
+      .codehilite .dl { color: #ae9513; }
+    </style>
+
+    <p class="family-nav">
+      <small>Light variants: <a href="../atelier-dune-light/index.html">atelier-dune-light</a></small>
+    </p>
+
+
+    <!-- Color palette strip -->
+    <div style=" border: 2px white solid; display: flex; height: 32px; margin: 1.5rem 0; border-radius: 4px; overflow: hidden;">
+      <span style="background-color: #20201d; flex: 1;" title="base00"></span>
+      <span style="background-color: #292824; flex: 1;" title="base01"></span>
+      <span style="background-color: #6e6b5e; flex: 1;" title="base02"></span>
+      <span style="background-color: #7d7a68; flex: 1;" title="base03"></span>
+      <span style="background-color: #999580; flex: 1;" title="base04"></span>
+      <span style="background-color: #a6a28c; flex: 1;" title="base05"></span>
+      <span style="background-color: #e8e4cf; flex: 1;" title="base06"></span>
+      <span style="background-color: #fefbec; flex: 1;" title="base07"></span>
+      <span style="background-color: #d73737; flex: 1;" title="base08"></span>
+      <span style="background-color: #b65611; flex: 1;" title="base09"></span>
+      <span style="background-color: #ae9513; flex: 1;" title="base0A"></span>
+      <span style="background-color: #60ac39; flex: 1;" title="base0B"></span>
+      <span style="background-color: #1fad83; flex: 1;" title="base0C"></span>
+      <span style="background-color: #6684e1; flex: 1;" title="base0D"></span>
+      <span style="background-color: #b854d4; flex: 1;" title="base0E"></span>
+      <span style="background-color: #d43552; flex: 1;" title="base0F"></span>
+    </div>
+
+    <article>
+      <header>Typography</header>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+
+      <h6>Code Example</h6>
+      <pre class="b codehilite"><code class="b"><span class="kn">def</span><span class="t"> </span><span class="nv">example_function</span><span class="t">(</span><span class="nv">a</span><span class="t">,</span><span class="nv">b</span><span class="t">)</span><span class="t">
+</span><span class="t">    </span><span class="t">puts</span><span class="t"> </span><span class="s">&quot;</span><span class="s">Hello, World!</span><span class="s">&quot;</span><span class="s"></span><span class="t">
+</span><span class="t">    </span><span class="kn">return</span><span class="t"> </span><span class="l">true</span><span class="t">
+</span><span class="kn">end</span><span class="t">
+</span></code></pre>
+
+      <h6>Data Table</h6>
+      <table role="grid" class="striped">
+        <thead>
+          <tr>
+            <th>Column</th>
+            <th>Data</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Item 1</td>
+            <td>Value 1</td>
+            <td>Description of first item</td>
+          </tr>
+          <tr>
+            <td>Item 2</td>
+            <td>Value 2</td>
+            <td>Description of second item</td>
+          </tr>
+          <tr>
+            <td>Item 3</td>
+            <td>Value 3</td>
+            <td>Description of third item</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h6>Form</h6>
+      <form>
+        <label for="name">Name
+          <input type="text" id="name" name="name" placeholder="Enter your name">
+        </label>
+        <div role="group">
+          <button type="button" class="secondary">Cancel</button>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </article>
+
+    <footer>
+      <hr>
+      <p><a href="../index.html">&larr; Back to all themes</a></p>
+    </footer>
+  </main>
+</body>
+</html>

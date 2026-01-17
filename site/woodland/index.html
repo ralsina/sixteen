@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Woodland - Sixteen Theme</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <main class="container">
+    <p><a href="../index.html">&larr; Back to all themes</a></p>
+    <h1>Woodland</h1>
+    <p>by Jay Cornwall (https://jcornwall.com)</p><p></p>
+
+    <style>
+      .family-nav {
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        background: var(--pico-code-background-color);
+        border-radius: 4px;
+      }
+      .family-nav small {
+        font-size: 0.875rem;
+      }
+      /* Tartrazine syntax highlighting */
+      .codehilite { color: #cabcb1; background-color: #302b25; }
+      .codehilite .nc { color: #bb90e2; }
+      .codehilite .nf { color: #88a4d3; }
+      .codehilite .nl { color: #d35c5c; }
+      .codehilite .nt { color: #e0ac16; }
+      .codehilite .k { color: #ca7f32; }
+      .codehilite .s { color: #b7ba53; }
+      .codehilite .s1 { color: #b49368; }
+      .codehilite .s2 { color: #6eb958; }
+      .codehilite .nb { color: #d35c5c; }
+      .codehilite .nv { color: #88a4d3; }
+      .codehilite .bp { color: #ca7f32; }
+      .codehilite .np { color: #e0ac16; }
+      .codehilite .no { color: #d35c5c; }
+      .codehilite .o { color: #ca7f32; }
+      .codehilite .ow { color: #ca7f32; }
+      .codehilite .mi { color: #d35c5c; }
+      .codehilite .l { color: #e0ac16; }
+      .codehilite .ld { color: #6eb958; }
+      .codehilite .nx { color: #88a4d3; }
+      .codehilite .nd { color: #d35c5c; }
+      .codehilite .ne { color: #d35c5c; }
+      .codehilite .ss { color: #b7ba53; }
+      .codehilite .sr { color: #b49368; }
+      .codehilite .s2 { color: #6eb958; }
+      .codehilite .ni { color: #d35c5c; }
+      .codehilite .kp { color: #ca7f32; }
+      .codehilite .nt { color: #e0ac16; }
+      .codehilite .kn { color: #ca7f32; }
+      .codehilite .nf { color: #88a4d3; }
+      .codehilite .nv { color: #bb90e2; }
+      .codehilite .vc { color: #bb90e2; }
+      .codehilite .vg { color: #88a4d3; }
+      .codehilite .vi { color: #bb90e2; }
+      .codehilite .nv { color: #88a4d3; }
+      .codehilite .vf { color: #88a4d3; }
+      .codehilite .nc { color: #bb90e2; }
+      .codehilite .no { color: #d35c5c; }
+      .codehilite .s1 { color: #b49368; }
+      .codehilite .s2 { color: #6eb958; }
+      .codehilite .nb { color: #d35c5c; }
+      .codehilite .pc { color: #ca7f32; }
+      .codehilite .ps { color: #b7ba53; }
+      .codehilite .sc { color: #e4d4c8; }
+      .codehilite .kc { color: #d35c5c; }
+      .codehilite .kd { color: #ca7f32; }
+      .codehilite .dl { color: #e0ac16; }
+    </style>
+
+    <p class="family-nav">
+      <small>Light variants: <a href="../woodland-auto-light/index.html">woodland-auto-light</a></small>
+    </p>
+
+
+    <!-- Color palette strip -->
+    <div style=" border: 2px white solid; display: flex; height: 32px; margin: 1.5rem 0; border-radius: 4px; overflow: hidden;">
+      <span style="background-color: #231e18; flex: 1;" title="base00"></span>
+      <span style="background-color: #302b25; flex: 1;" title="base01"></span>
+      <span style="background-color: #48413a; flex: 1;" title="base02"></span>
+      <span style="background-color: #9d8b70; flex: 1;" title="base03"></span>
+      <span style="background-color: #b4a490; flex: 1;" title="base04"></span>
+      <span style="background-color: #cabcb1; flex: 1;" title="base05"></span>
+      <span style="background-color: #d7c8bc; flex: 1;" title="base06"></span>
+      <span style="background-color: #e4d4c8; flex: 1;" title="base07"></span>
+      <span style="background-color: #d35c5c; flex: 1;" title="base08"></span>
+      <span style="background-color: #ca7f32; flex: 1;" title="base09"></span>
+      <span style="background-color: #e0ac16; flex: 1;" title="base0A"></span>
+      <span style="background-color: #b7ba53; flex: 1;" title="base0B"></span>
+      <span style="background-color: #6eb958; flex: 1;" title="base0C"></span>
+      <span style="background-color: #88a4d3; flex: 1;" title="base0D"></span>
+      <span style="background-color: #bb90e2; flex: 1;" title="base0E"></span>
+      <span style="background-color: #b49368; flex: 1;" title="base0F"></span>
+    </div>
+
+    <article>
+      <header>Typography</header>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+
+      <h6>Code Example</h6>
+      <pre class="b codehilite"><code class="b"><span class="kn">def</span><span class="t"> </span><span class="nv">example_function</span><span class="t">(</span><span class="nv">a</span><span class="t">,</span><span class="nv">b</span><span class="t">)</span><span class="t">
+</span><span class="t">    </span><span class="t">puts</span><span class="t"> </span><span class="s">&quot;</span><span class="s">Hello, World!</span><span class="s">&quot;</span><span class="s"></span><span class="t">
+</span><span class="t">    </span><span class="kn">return</span><span class="t"> </span><span class="l">true</span><span class="t">
+</span><span class="kn">end</span><span class="t">
+</span></code></pre>
+
+      <h6>Data Table</h6>
+      <table role="grid" class="striped">
+        <thead>
+          <tr>
+            <th>Column</th>
+            <th>Data</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Item 1</td>
+            <td>Value 1</td>
+            <td>Description of first item</td>
+          </tr>
+          <tr>
+            <td>Item 2</td>
+            <td>Value 2</td>
+            <td>Description of second item</td>
+          </tr>
+          <tr>
+            <td>Item 3</td>
+            <td>Value 3</td>
+            <td>Description of third item</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h6>Form</h6>
+      <form>
+        <label for="name">Name
+          <input type="text" id="name" name="name" placeholder="Enter your name">
+        </label>
+        <div role="group">
+          <button type="button" class="secondary">Cancel</button>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </article>
+
+    <footer>
+      <hr>
+      <p><a href="../index.html">&larr; Back to all themes</a></p>
+    </footer>
+  </main>
+</body>
+</html>

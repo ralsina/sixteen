@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nord Light - Sixteen Theme</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <main class="container">
+    <p><a href="../index.html">&larr; Back to all themes</a></p>
+    <h1>Nord Light</h1>
+    <p>by threddast, based on fuxialexander&apos;s doom-nord-light-theme (Doom Emacs)</p><p></p>
+
+    <style>
+      .family-nav {
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        background: var(--pico-code-background-color);
+        border-radius: 4px;
+      }
+      .family-nav small {
+        font-size: 0.875rem;
+      }
+      /* Tartrazine syntax highlighting */
+      .codehilite { color: #2e3440; background-color: #c2d0e7; }
+      .codehilite .nc { color: #97365b; }
+      .codehilite .nf { color: #3b6ea8; }
+      .codehilite .nl { color: #99324b; }
+      .codehilite .nt { color: #9a7500; }
+      .codehilite .k { color: #ac4426; }
+      .codehilite .s { color: #4f894c; }
+      .codehilite .s1 { color: #5272af; }
+      .codehilite .s2 { color: #398eac; }
+      .codehilite .nb { color: #99324b; }
+      .codehilite .nv { color: #3b6ea8; }
+      .codehilite .bp { color: #ac4426; }
+      .codehilite .np { color: #9a7500; }
+      .codehilite .no { color: #99324b; }
+      .codehilite .o { color: #ac4426; }
+      .codehilite .ow { color: #ac4426; }
+      .codehilite .mi { color: #99324b; }
+      .codehilite .l { color: #9a7500; }
+      .codehilite .ld { color: #398eac; }
+      .codehilite .nx { color: #3b6ea8; }
+      .codehilite .nd { color: #99324b; }
+      .codehilite .ne { color: #99324b; }
+      .codehilite .ss { color: #4f894c; }
+      .codehilite .sr { color: #5272af; }
+      .codehilite .s2 { color: #398eac; }
+      .codehilite .ni { color: #99324b; }
+      .codehilite .kp { color: #ac4426; }
+      .codehilite .nt { color: #9a7500; }
+      .codehilite .kn { color: #ac4426; }
+      .codehilite .nf { color: #3b6ea8; }
+      .codehilite .nv { color: #97365b; }
+      .codehilite .vc { color: #97365b; }
+      .codehilite .vg { color: #3b6ea8; }
+      .codehilite .vi { color: #97365b; }
+      .codehilite .nv { color: #3b6ea8; }
+      .codehilite .vf { color: #3b6ea8; }
+      .codehilite .nc { color: #97365b; }
+      .codehilite .no { color: #99324b; }
+      .codehilite .s1 { color: #5272af; }
+      .codehilite .s2 { color: #398eac; }
+      .codehilite .nb { color: #99324b; }
+      .codehilite .pc { color: #ac4426; }
+      .codehilite .ps { color: #4f894c; }
+      .codehilite .sc { color: #29838d; }
+      .codehilite .kc { color: #99324b; }
+      .codehilite .kd { color: #ac4426; }
+      .codehilite .dl { color: #9a7500; }
+    </style>
+
+
+    <p class="family-nav">
+      <small>Dark variants: <a href="../nord/index.html">nord</a></small>
+    </p>
+
+    <!-- Color palette strip -->
+    <div style=" border: 2px white solid; display: flex; height: 32px; margin: 1.5rem 0; border-radius: 4px; overflow: hidden;">
+      <span style="background-color: #e5e9f0; flex: 1;" title="base00"></span>
+      <span style="background-color: #c2d0e7; flex: 1;" title="base01"></span>
+      <span style="background-color: #b8c5db; flex: 1;" title="base02"></span>
+      <span style="background-color: #aebacf; flex: 1;" title="base03"></span>
+      <span style="background-color: #60728c; flex: 1;" title="base04"></span>
+      <span style="background-color: #2e3440; flex: 1;" title="base05"></span>
+      <span style="background-color: #3b4252; flex: 1;" title="base06"></span>
+      <span style="background-color: #29838d; flex: 1;" title="base07"></span>
+      <span style="background-color: #99324b; flex: 1;" title="base08"></span>
+      <span style="background-color: #ac4426; flex: 1;" title="base09"></span>
+      <span style="background-color: #9a7500; flex: 1;" title="base0A"></span>
+      <span style="background-color: #4f894c; flex: 1;" title="base0B"></span>
+      <span style="background-color: #398eac; flex: 1;" title="base0C"></span>
+      <span style="background-color: #3b6ea8; flex: 1;" title="base0D"></span>
+      <span style="background-color: #97365b; flex: 1;" title="base0E"></span>
+      <span style="background-color: #5272af; flex: 1;" title="base0F"></span>
+    </div>
+
+    <article>
+      <header>Typography</header>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+
+      <h6>Code Example</h6>
+      <pre class="b codehilite"><code class="b"><span class="kn">def</span><span class="t"> </span><span class="nv">example_function</span><span class="t">(</span><span class="nv">a</span><span class="t">,</span><span class="nv">b</span><span class="t">)</span><span class="t">
+</span><span class="t">    </span><span class="t">puts</span><span class="t"> </span><span class="s">&quot;</span><span class="s">Hello, World!</span><span class="s">&quot;</span><span class="s"></span><span class="t">
+</span><span class="t">    </span><span class="kn">return</span><span class="t"> </span><span class="l">true</span><span class="t">
+</span><span class="kn">end</span><span class="t">
+</span></code></pre>
+
+      <h6>Data Table</h6>
+      <table role="grid" class="striped">
+        <thead>
+          <tr>
+            <th>Column</th>
+            <th>Data</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Item 1</td>
+            <td>Value 1</td>
+            <td>Description of first item</td>
+          </tr>
+          <tr>
+            <td>Item 2</td>
+            <td>Value 2</td>
+            <td>Description of second item</td>
+          </tr>
+          <tr>
+            <td>Item 3</td>
+            <td>Value 3</td>
+            <td>Description of third item</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h6>Form</h6>
+      <form>
+        <label for="name">Name
+          <input type="text" id="name" name="name" placeholder="Enter your name">
+        </label>
+        <div role="group">
+          <button type="button" class="secondary">Cancel</button>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </article>
+
+    <footer>
+      <hr>
+      <p><a href="../index.html">&larr; Back to all themes</a></p>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gotham - Sixteen Theme</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <main class="container">
+    <p><a href="../index.html">&larr; Back to all themes</a></p>
+    <h1>Gotham</h1>
+    <p>by Andrea Leopardi (arranged by Brett Jones)</p><p></p>
+
+    <style>
+      .family-nav {
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        background: var(--pico-code-background-color);
+        border-radius: 4px;
+      }
+      .family-nav small {
+        font-size: 0.875rem;
+      }
+      /* Tartrazine syntax highlighting */
+      .codehilite { color: #599cab; background-color: #11151c; }
+      .codehilite .nc { color: #888ca6; }
+      .codehilite .nf { color: #195466; }
+      .codehilite .nl { color: #c23127; }
+      .codehilite .nt { color: #edb443; }
+      .codehilite .k { color: #d26937; }
+      .codehilite .s { color: #33859e; }
+      .codehilite .s1 { color: #4e5166; }
+      .codehilite .s2 { color: #2aa889; }
+      .codehilite .nb { color: #c23127; }
+      .codehilite .nv { color: #195466; }
+      .codehilite .bp { color: #d26937; }
+      .codehilite .np { color: #edb443; }
+      .codehilite .no { color: #c23127; }
+      .codehilite .o { color: #d26937; }
+      .codehilite .ow { color: #d26937; }
+      .codehilite .mi { color: #c23127; }
+      .codehilite .l { color: #edb443; }
+      .codehilite .ld { color: #2aa889; }
+      .codehilite .nx { color: #195466; }
+      .codehilite .nd { color: #c23127; }
+      .codehilite .ne { color: #c23127; }
+      .codehilite .ss { color: #33859e; }
+      .codehilite .sr { color: #4e5166; }
+      .codehilite .s2 { color: #2aa889; }
+      .codehilite .ni { color: #c23127; }
+      .codehilite .kp { color: #d26937; }
+      .codehilite .nt { color: #edb443; }
+      .codehilite .kn { color: #d26937; }
+      .codehilite .nf { color: #195466; }
+      .codehilite .nv { color: #888ca6; }
+      .codehilite .vc { color: #888ca6; }
+      .codehilite .vg { color: #195466; }
+      .codehilite .vi { color: #888ca6; }
+      .codehilite .nv { color: #195466; }
+      .codehilite .vf { color: #195466; }
+      .codehilite .nc { color: #888ca6; }
+      .codehilite .no { color: #c23127; }
+      .codehilite .s1 { color: #4e5166; }
+      .codehilite .s2 { color: #2aa889; }
+      .codehilite .nb { color: #c23127; }
+      .codehilite .pc { color: #d26937; }
+      .codehilite .ps { color: #33859e; }
+      .codehilite .sc { color: #d3ebe9; }
+      .codehilite .kc { color: #c23127; }
+      .codehilite .kd { color: #d26937; }
+      .codehilite .dl { color: #edb443; }
+    </style>
+
+    <p class="family-nav">
+      <small>Light variants: <a href="../gotham-auto-light/index.html">gotham-auto-light</a></small>
+    </p>
+
+
+    <!-- Color palette strip -->
+    <div style=" border: 2px white solid; display: flex; height: 32px; margin: 1.5rem 0; border-radius: 4px; overflow: hidden;">
+      <span style="background-color: #0c1014; flex: 1;" title="base00"></span>
+      <span style="background-color: #11151c; flex: 1;" title="base01"></span>
+      <span style="background-color: #091f2e; flex: 1;" title="base02"></span>
+      <span style="background-color: #0a3749; flex: 1;" title="base03"></span>
+      <span style="background-color: #245361; flex: 1;" title="base04"></span>
+      <span style="background-color: #599cab; flex: 1;" title="base05"></span>
+      <span style="background-color: #99d1ce; flex: 1;" title="base06"></span>
+      <span style="background-color: #d3ebe9; flex: 1;" title="base07"></span>
+      <span style="background-color: #c23127; flex: 1;" title="base08"></span>
+      <span style="background-color: #d26937; flex: 1;" title="base09"></span>
+      <span style="background-color: #edb443; flex: 1;" title="base0A"></span>
+      <span style="background-color: #33859e; flex: 1;" title="base0B"></span>
+      <span style="background-color: #2aa889; flex: 1;" title="base0C"></span>
+      <span style="background-color: #195466; flex: 1;" title="base0D"></span>
+      <span style="background-color: #888ca6; flex: 1;" title="base0E"></span>
+      <span style="background-color: #4e5166; flex: 1;" title="base0F"></span>
+    </div>
+
+    <article>
+      <header>Typography</header>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+
+      <h6>Code Example</h6>
+      <pre class="b codehilite"><code class="b"><span class="kn">def</span><span class="t"> </span><span class="nv">example_function</span><span class="t">(</span><span class="nv">a</span><span class="t">,</span><span class="nv">b</span><span class="t">)</span><span class="t">
+</span><span class="t">    </span><span class="t">puts</span><span class="t"> </span><span class="s">&quot;</span><span class="s">Hello, World!</span><span class="s">&quot;</span><span class="s"></span><span class="t">
+</span><span class="t">    </span><span class="kn">return</span><span class="t"> </span><span class="l">true</span><span class="t">
+</span><span class="kn">end</span><span class="t">
+</span></code></pre>
+
+      <h6>Data Table</h6>
+      <table role="grid" class="striped">
+        <thead>
+          <tr>
+            <th>Column</th>
+            <th>Data</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Item 1</td>
+            <td>Value 1</td>
+            <td>Description of first item</td>
+          </tr>
+          <tr>
+            <td>Item 2</td>
+            <td>Value 2</td>
+            <td>Description of second item</td>
+          </tr>
+          <tr>
+            <td>Item 3</td>
+            <td>Value 3</td>
+            <td>Description of third item</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h6>Form</h6>
+      <form>
+        <label for="name">Name
+          <input type="text" id="name" name="name" placeholder="Enter your name">
+        </label>
+        <div role="group">
+          <button type="button" class="secondary">Cancel</button>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </article>
+
+    <footer>
+      <hr>
+      <p><a href="../index.html">&larr; Back to all themes</a></p>
+    </footer>
+  </main>
+</body>
+</html>

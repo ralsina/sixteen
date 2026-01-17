@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Primer Dark - Sixteen Theme</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <main class="container">
+    <p><a href="../index.html">&larr; Back to all themes</a></p>
+    <h1>Primer Dark</h1>
+    <p>by Jimmy Lin</p><p></p>
+
+    <style>
+      .family-nav {
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        background: var(--pico-code-background-color);
+        border-radius: 4px;
+      }
+      .family-nav small {
+        font-size: 0.875rem;
+      }
+      /* Tartrazine syntax highlighting */
+      .codehilite { color: #b1bac4; background-color: #21262d; }
+      .codehilite .nc { color: #f778ba; }
+      .codehilite .nf { color: #58a6ff; }
+      .codehilite .nl { color: #ff7b72; }
+      .codehilite .nt { color: #d29922; }
+      .codehilite .k { color: #f0883e; }
+      .codehilite .s { color: #3fb950; }
+      .codehilite .s1 { color: #bd561d; }
+      .codehilite .s2 { color: #a5d6ff; }
+      .codehilite .nb { color: #ff7b72; }
+      .codehilite .nv { color: #58a6ff; }
+      .codehilite .bp { color: #f0883e; }
+      .codehilite .np { color: #d29922; }
+      .codehilite .no { color: #ff7b72; }
+      .codehilite .o { color: #f0883e; }
+      .codehilite .ow { color: #f0883e; }
+      .codehilite .mi { color: #ff7b72; }
+      .codehilite .l { color: #d29922; }
+      .codehilite .ld { color: #a5d6ff; }
+      .codehilite .nx { color: #58a6ff; }
+      .codehilite .nd { color: #ff7b72; }
+      .codehilite .ne { color: #ff7b72; }
+      .codehilite .ss { color: #3fb950; }
+      .codehilite .sr { color: #bd561d; }
+      .codehilite .s2 { color: #a5d6ff; }
+      .codehilite .ni { color: #ff7b72; }
+      .codehilite .kp { color: #f0883e; }
+      .codehilite .nt { color: #d29922; }
+      .codehilite .kn { color: #f0883e; }
+      .codehilite .nf { color: #58a6ff; }
+      .codehilite .nv { color: #f778ba; }
+      .codehilite .vc { color: #f778ba; }
+      .codehilite .vg { color: #58a6ff; }
+      .codehilite .vi { color: #f778ba; }
+      .codehilite .nv { color: #58a6ff; }
+      .codehilite .vf { color: #58a6ff; }
+      .codehilite .nc { color: #f778ba; }
+      .codehilite .no { color: #ff7b72; }
+      .codehilite .s1 { color: #bd561d; }
+      .codehilite .s2 { color: #a5d6ff; }
+      .codehilite .nb { color: #ff7b72; }
+      .codehilite .pc { color: #f0883e; }
+      .codehilite .ps { color: #3fb950; }
+      .codehilite .sc { color: #f0f6fc; }
+      .codehilite .kc { color: #ff7b72; }
+      .codehilite .kd { color: #f0883e; }
+      .codehilite .dl { color: #d29922; }
+    </style>
+
+    <p class="family-nav">
+      <small>Light variants: <a href="../primer-light/index.html">primer-light</a></small>
+    </p>
+
+
+    <!-- Color palette strip -->
+    <div style=" border: 2px white solid; display: flex; height: 32px; margin: 1.5rem 0; border-radius: 4px; overflow: hidden;">
+      <span style="background-color: #010409; flex: 1;" title="base00"></span>
+      <span style="background-color: #21262d; flex: 1;" title="base01"></span>
+      <span style="background-color: #30363d; flex: 1;" title="base02"></span>
+      <span style="background-color: #484f58; flex: 1;" title="base03"></span>
+      <span style="background-color: #8b949e; flex: 1;" title="base04"></span>
+      <span style="background-color: #b1bac4; flex: 1;" title="base05"></span>
+      <span style="background-color: #c9d1d9; flex: 1;" title="base06"></span>
+      <span style="background-color: #f0f6fc; flex: 1;" title="base07"></span>
+      <span style="background-color: #ff7b72; flex: 1;" title="base08"></span>
+      <span style="background-color: #f0883e; flex: 1;" title="base09"></span>
+      <span style="background-color: #d29922; flex: 1;" title="base0A"></span>
+      <span style="background-color: #3fb950; flex: 1;" title="base0B"></span>
+      <span style="background-color: #a5d6ff; flex: 1;" title="base0C"></span>
+      <span style="background-color: #58a6ff; flex: 1;" title="base0D"></span>
+      <span style="background-color: #f778ba; flex: 1;" title="base0E"></span>
+      <span style="background-color: #bd561d; flex: 1;" title="base0F"></span>
+    </div>
+
+    <article>
+      <header>Typography</header>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+
+      <h6>Code Example</h6>
+      <pre class="b codehilite"><code class="b"><span class="kn">def</span><span class="t"> </span><span class="nv">example_function</span><span class="t">(</span><span class="nv">a</span><span class="t">,</span><span class="nv">b</span><span class="t">)</span><span class="t">
+</span><span class="t">    </span><span class="t">puts</span><span class="t"> </span><span class="s">&quot;</span><span class="s">Hello, World!</span><span class="s">&quot;</span><span class="s"></span><span class="t">
+</span><span class="t">    </span><span class="kn">return</span><span class="t"> </span><span class="l">true</span><span class="t">
+</span><span class="kn">end</span><span class="t">
+</span></code></pre>
+
+      <h6>Data Table</h6>
+      <table role="grid" class="striped">
+        <thead>
+          <tr>
+            <th>Column</th>
+            <th>Data</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Item 1</td>
+            <td>Value 1</td>
+            <td>Description of first item</td>
+          </tr>
+          <tr>
+            <td>Item 2</td>
+            <td>Value 2</td>
+            <td>Description of second item</td>
+          </tr>
+          <tr>
+            <td>Item 3</td>
+            <td>Value 3</td>
+            <td>Description of third item</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h6>Form</h6>
+      <form>
+        <label for="name">Name
+          <input type="text" id="name" name="name" placeholder="Enter your name">
+        </label>
+        <div role="group">
+          <button type="button" class="secondary">Cancel</button>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </article>
+
+    <footer>
+      <hr>
+      <p><a href="../index.html">&larr; Back to all themes</a></p>
+    </footer>
+  </main>
+</body>
+</html>
