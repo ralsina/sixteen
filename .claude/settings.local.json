@@ -47,7 +47,9 @@
       "Skill(finishing-a-development-branch)",
       "Bash(git checkout:*)",
       "Bash(find:*)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(curl:*)",
+      "Bash(tr:*)"
     ],
     "deny": [],
     "ask": []
