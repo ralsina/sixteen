@@ -86,7 +86,7 @@ if options["--build"]
   scheme_name = options["<scheme>"].as(String)
   begin
     scheme = get_theme_with_variant(scheme_name, options)
-    template.render(scheme)
+    template.render(scheme, scheme_name)
     exit 0
   rescue Exception
     STDERR.puts "Error: Theme not found: #{scheme_name}"
@@ -98,10 +98,11 @@ if options["--render"]
   template = options["<template>"].as(String)
   scheme_name = options["<scheme>"].as(String)
   begin
-    scheme = get_theme_with_variant(scheme_name, options)
+    get_theme_with_variant(scheme_name, options)
+    context = Sixteen.theme_with_family_context(scheme_name)
     puts Crustache.render(
       Crustache.parse(File.read(template)),
-      scheme.context
+      context
     )
     exit 0
   rescue Exception

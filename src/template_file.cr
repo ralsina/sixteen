@@ -27,8 +27,8 @@ module Sixteen
       self.merge!(parsed)
     end
 
-    def render(theme : Theme)
-      context = theme.context
+    def render(theme : Theme, scheme_name : String)
+      context = Sixteen.theme_with_family_context(scheme_name)
       self.each do |k, v|
         fname = Crustache.render(
           Crustache.parse(v.filename.as(String)), context)

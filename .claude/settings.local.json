@@ -49,7 +49,8 @@
       "Bash(find:*)",
       "Bash(git rm:*)",
       "Bash(curl:*)",
-      "Bash(tr:*)"
+      "Bash(tr:*)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []
