@@ -2,11 +2,39 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.7.0] - 2026-01-17
+
+### 🚀 Features
+
+- Reorganize site generation and fix display issues
+
+### 🐛 Bug Fixes
+
+- Use correct paths
+- Better rendering
+- Better rendering
+- Missing file
+- Preserve relative luminance in color inversion
+
+### 📚 Documentation
+
+- Add static site generator design document
+- Add static site generator implementation plan
+
+### ⚙️ Miscellaneous Tasks
+
+- Add .worktrees/ to gitignore
+- Remove generated site/ directory from version control
+
 ## [0.6.3] - 2025-12-26
 
 ### Build
 
 - Bump release number
+
+### Bump
+
+- Release v0.6.3
 
 ## [0.6.2] - 2025-12-26
 

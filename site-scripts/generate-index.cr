@@ -106,6 +106,6 @@ output = families.map do |base_name, themes|
       }
     },
   }
-end.sort_by { |f| f["base_name"].to_s }
+end.sort_by!(&.["base_name"].to_s)
 
 puts output.to_json
