@@ -46,7 +46,8 @@
       "Bash(crystal tool format:*)",
       "Skill(finishing-a-development-branch)",
       "Bash(git checkout:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(git rm:*)"
     ],
     "deny": [],
     "ask": []

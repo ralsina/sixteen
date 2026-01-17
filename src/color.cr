@@ -128,14 +128,27 @@ module Sixteen
 
       case target
       when :light
-        # Make light colors darker, dark colors lighter
-        # Preserve hue, adjust saturation and luminance
-        new_l = l < 0.3 ? 0.8 : (l > 0.7 ? 0.2 : 0.9 - l)
+        # Invert dark colors to light while preserving relative differences
+        # Map dark range (0.0-0.5) to light range (0.95-0.5)
+        new_l = if l < 0.5
+                  # Dark colors: map 0.0->0.95, 0.5->0.5
+                  0.95 - (l * 0.9)
+                else
+                  # Already light colors: make darker
+                  0.5 - ((l - 0.5) * 0.8)
+                end
         new_s = s * 0.8 # Slightly reduce saturation for readability
         Color.new(h: h, s: new_s.clamp(0.0, 1.0), l: new_l.clamp(0.0, 1.0))
       when :dark
-        # Make light colors darker, dark colors lighter
-        new_l = l < 0.3 ? 0.8 : (l > 0.7 ? 0.2 : 0.9 - l)
+        # Invert light colors to dark while preserving relative differences
+        # Map light range (0.5-1.0) to dark range (0.5-0.05)
+        new_l = if l > 0.5
+                  # Light colors: map 1.0->0.05, 0.5->0.5
+                  0.5 - ((l - 0.5) * 0.9)
+                else
+                  # Already dark colors: make lighter
+                  0.5 + (l * 0.8)
+                end
         new_s = s * 0.9 # Keep most saturation for dark themes
         Color.new(h: h, s: new_s.clamp(0.0, 1.0), l: new_l.clamp(0.0, 1.0))
       else
