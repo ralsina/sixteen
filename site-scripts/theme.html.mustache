@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{scheme-name}} - Sixteen Theme</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
   <link rel="stylesheet" href="theme.css">
 </head>
@@ -14,6 +17,10 @@
     <p>by {{scheme-author}}</p><p>{{scheme-description}}</p>
 
     <style>
+      :root {
+        --pico-font-family-sans-serif: "Quicksand", sans-serif;
+        --pico-font-family-monospace: "Quicksand", monospace;
+      }
       .family-nav {
         margin: 0.5rem 0;
         padding: 0.5rem;
