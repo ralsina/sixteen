@@ -91,7 +91,7 @@ def generate_theme(theme : Sixteen::Theme, slug : String, theme_name : String, g
       context["family-other-dark-count"] = 1
       # Clear any light variants
       (0..9).each { |i| context.delete("family-other-light-#{i}") }
-      context["family-other-light-count"] = 0
+      context.delete("family-other-light-count")
       # Fix: Update variant for auto-generated themes
       context["scheme-variant"] = "light"
       context["scheme-is-light-variant"] = true
@@ -102,7 +102,7 @@ def generate_theme(theme : Sixteen::Theme, slug : String, theme_name : String, g
       context["family-other-light-count"] = 1
       # Clear any dark variants
       (0..9).each { |i| context.delete("family-other-dark-#{i}") }
-      context["family-other-dark-count"] = 0
+      context.delete("family-other-dark-count")
       # Fix: Update variant for auto-generated themes
       context["scheme-variant"] = "dark"
       context["scheme-is-dark-variant"] = true

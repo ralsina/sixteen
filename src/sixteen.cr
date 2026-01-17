@@ -406,9 +406,9 @@ module Sixteen
       context["family-other-light-#{i}"] = variant
     end
 
-    # Add count for template to use
-    context["family-other-dark-count"] = other_dark.size
-    context["family-other-light-count"] = other_light.size
+    # Add count for template to use (only if > 0 so Mustache section won't show)
+    context["family-other-dark-count"] = other_dark.size if other_dark.size > 0
+    context["family-other-light-count"] = other_light.size if other_light.size > 0
 
     context
   end
