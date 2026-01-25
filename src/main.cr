@@ -2,7 +2,126 @@ require "./sixteen"
 require "./template_file"
 require "colorize"
 require "docopt"
-require "lime"
+require "crystal_tui"
+
+# Create a TUI app for theme browsing
+class ThemeBrowser < Tui::App
+  @names : Array(String)
+  @list_view : Tui::ListView(String)
+  @info_panel : Tui::Panel
+  @info_labels : Array(Tui::Label)
+
+  def initialize(@names : Array(String))
+    super()
+
+    list_w = @names.max_of(&.size) + 4
+
+    # Create list view for themes
+    @list_view = Tui::ListView(String).new("themes", @names)
+    @list_view.constraints = Tui::Constraints.new(width: Tui::Dimension.px(list_w))
+    @list_view.selected_style = Tui::Style.new(fg: Tui::Color.black, bg: Tui::Color.red)
+    @list_view.on_select do |name, _|
+      update_info_panel(name)
+    end
+
+    @list_view.on_activate do |name, _|
+      quit
+      @selected_theme = name
+    end
+
+    # Create info labels (reused when selection changes)
+    @info_labels = [] of Tui::Label
+
+    # Create info panel
+    @info_panel = Tui::Panel.new("Theme Info")
+
+    # Initialize with first theme
+    update_info_panel(@names.first) unless @names.empty?
+  end
+
+  property selected_theme : String? = nil
+
+  def update_info_panel(name : String) : Nil
+    theme = Sixteen.theme(name)
+
+    # Clear and recreate info labels
+    @info_labels.clear
+
+    # Add theme info labels
+    @info_labels << Tui::Label.new("Name: #{theme.name}", fg: Tui::Color.white)
+    @info_labels << Tui::Label.new("Author: #{theme.author}", fg: Tui::Color.white)
+
+    unless theme.description.empty?
+      @info_labels << Tui::Label.new("Description: #{theme.description}", fg: Tui::Color.white)
+    end
+
+    unless theme.variant.empty?
+      @info_labels << Tui::Label.new("Variant: #{theme.variant}", fg: Tui::Color.white)
+    end
+
+    @info_labels << Tui::Label.new("") # spacer
+
+    # Add color palette
+    sorted_keys = theme.palette.keys.sort!
+    sorted_keys.each do |key|
+      color = theme[key]
+      contrast = theme.contrasting(key.lchop("base").to_i(base: 16))
+
+      # Create a label with the color name and hex value
+      label_text = "#{key}: #{color.hex}"
+      label = Tui::Label.new(label_text,
+        fg: Tui::Color.rgb(contrast.r.to_i, contrast.g.to_i, contrast.b.to_i),
+        bg: Tui::Color.rgb(color.r.to_i, color.g.to_i, color.b.to_i))
+      @info_labels << label
+    end
+
+    mark_dirty!
+  end
+
+  def compose : Array(Tui::Widget)
+    # Create VBox for info content
+    info_vbox = Tui::VBox.new("info_content") do
+      @info_labels.map { |label| label.as(Tui::Widget) }
+    end
+
+    @info_panel.content = info_vbox
+
+    # Use HBox for split layout
+    hbox = Tui::HBox.new("main") do
+      [@list_view.as(Tui::Widget), @info_panel.as(Tui::Widget)]
+    end
+
+    [hbox] of Tui::Widget
+  end
+
+  def handle_event(event : Tui::Event) : Bool
+    if event.is_a?(Tui::KeyEvent)
+      # Quit on q or Ctrl+C
+      if event.matches?("q") || event.matches?("ctrl+c")
+        quit
+        return true
+      end
+
+      # Vim-style navigation
+      if event.matches?("j") || event.matches?("down")
+        @list_view.select_next
+        return true
+      elsif event.matches?("k") || event.matches?("up")
+        @list_view.select_prev
+        return true
+      elsif event.matches?("enter")
+        item = @list_view.selected_item
+        if item
+          @selected_theme = item
+          quit
+        end
+        return true
+      end
+    end
+
+    super
+  end
+end
 
 HELP = <<-DOCOPT
 Sixteen: a Tinted Themes builder
@@ -135,63 +254,23 @@ if options["--interactive"]
     puts "This binary was built with no embedded themes, so no interactive mode is available."
     exit 1
   end
+
+  # Get theme names
   names = Sixteen::DataFiles.files.select { |fname|
     fname.path.ends_with?(".yaml")
   }.map { |fname|
     File.basename(fname.path, ".yaml")
   }.sort!
-  list_w = names.max_of(&.size) + 4
-  offset = 0
-  current = 0
-  k = ""
-  STDIN.noecho do
-    Lime.loop do
-      # Get some sizes we need
-      # Window.update
-      wh = Window.height
-      ww = Window.width
-      max_tw = ww - list_w - 2
 
-      # Draw the list of themes on the left
-      visible_names = names[offset..offset + wh]
-      visible_names.each_with_index do |name, i|
-        if current == i + offset
-          Lime.print ">>#{name}".ljust(list_w).colorize(:red).mode(:bold), 0, i
-        else
-          Lime.print "  #{name}".ljust(list_w), 0, i
-        end
-      end
+  # Run the browser
+  browser = ThemeBrowser.new(names)
+  browser.run
 
-      # Draw the current theme info on the right
-      theme = Sixteen.theme(names[current])
-      Lime.print "Name: #{theme.name}"[...max_tw].colorize(:white), list_w, 1
-      Lime.print "Author: #{theme.author}"[...max_tw].colorize(:white), list_w, 2
-      Lime.print "Description: #{theme.description}"[...max_tw].colorize(:white), list_w, 3 unless theme.description.empty?
-      Lime.print "Variant: #{theme.variant}"[...max_tw].colorize(:white), list_w, 3 unless theme.variant.empty?
-      theme.palette.keys.sort!.each_with_index { |key, i|
-        break if 6 + i > wh
-        color = theme[key]
-        Lime.print "#{key}:", list_w, 6 + i
-        contrast = theme.contrasting(i)
-        Lime.print theme[key].hex.ljust(max_tw - 10).colorize(contrast.colorize).back(color.colorize), list_w + 9, 6 + i
-      }
-      Lime.draw
-      k = Lime.get_key
-      case k
-      when "j", :up
-        current -= 1 unless current == 0
-        offset -= 1 if current < offset
-      when "k", :down
-        current += 1 unless current == names.size - 1
-        offset += 1 if current - offset > wh
-      when :enter
-        puts names[current]
-        exit 0
-      when :ctrl_c, "q"
-        break
-      end
-    end
+  # Print selected theme name
+  if theme_name = browser.selected_theme
+    puts theme_name
   end
+
   exit 0
 end
 

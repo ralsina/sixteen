@@ -11,14 +11,14 @@ targets:
 dependencies:
   baked_file_system:
     github: ralsina/baked_file_system
-    branch: master
+    branch: feature/objcopy-loader
 
 development_dependencies:
   crustache:
     github: MakeNowJust/crustache
   docopt:
     github: ralsina/docopt.cr
-  lime:
-    github: ralsina/lime
+  crystal_tui:
+    github: skuznetsov/crystal_tui
 
 license: MIT

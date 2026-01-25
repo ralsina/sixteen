@@ -298,9 +298,13 @@ module Sixteen
 
     return special_cases[name] if special_cases[name]?
 
-    # Standard patterns
+    # Standard patterns (include aliases for dark/light)
     name = name.sub(/-light$/, "")
+    name = name.sub(/-day$/, "")   # Alias for light
+    name = name.sub(/-white$/, "") # Alias for light
     name = name.sub(/-dark$/, "")
+    name = name.sub(/-night$/, "") # Alias for dark
+    name = name.sub(/-black$/, "") # Alias for dark
     name = name.sub(/-terminal$/, "")
     name = name.sub(/-hard$/, "")
     name = name.sub(/-medium$/, "")
@@ -309,7 +313,6 @@ module Sixteen
     name = name.sub(/-contrast-plus-plus$/, "")
     name = name.sub(/-contrast-plus$/, "")
     name = name.sub(/-warm$/, "")
-    name = name.sub(/-white$/, "")
     name = name.sub(/-eleven$/, "")
     name = name.sub(/-fifteen$/, "")
 
