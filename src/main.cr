@@ -9,16 +9,16 @@ class ThemeBrowser < Tui::App
   @names : Array(String)
   @list_view : Tui::ListView(String)
   @info_panel : Tui::Panel
-  @info_labels : Array(Tui::Label)
+  @info_vbox : Tui::VBox
 
   def initialize(@names : Array(String))
     super()
 
-    list_w = @names.max_of(&.size) + 4
+    list_w = @names.max_of(&.size) + 3
 
     # Create list view for themes
     @list_view = Tui::ListView(String).new("themes", @names)
-    @list_view.constraints = Tui::Constraints.new(width: Tui::Dimension.px(list_w))
+    @list_view.constraints = Tui::Constraints.new(max_width: list_w)
     @list_view.selected_style = Tui::Style.new(fg: Tui::Color.black, bg: Tui::Color.red)
     @list_view.on_select do |name, _|
       update_info_panel(name)
@@ -29,11 +29,12 @@ class ThemeBrowser < Tui::App
       @selected_theme = name
     end
 
-    # Create info labels (reused when selection changes)
-    @info_labels = [] of Tui::Label
+    # Create VBox for info content (will be populated dynamically)
+    @info_vbox = Tui::VBox.new("info_content")
 
     # Create info panel
     @info_panel = Tui::Panel.new("Theme Info")
+    @info_panel.content = @info_vbox
 
     # Initialize with first theme
     update_info_panel(@names.first) unless @names.empty?
@@ -44,22 +45,25 @@ class ThemeBrowser < Tui::App
   def update_info_panel(name : String) : Nil
     theme = Sixteen.theme(name)
 
-    # Clear and recreate info labels
-    @info_labels.clear
+    # Clear existing children
+    @info_vbox.clear_children
+
+    # Create and add new labels
+    labels = [] of Tui::Widget
 
     # Add theme info labels
-    @info_labels << Tui::Label.new("Name: #{theme.name}", fg: Tui::Color.white)
-    @info_labels << Tui::Label.new("Author: #{theme.author}", fg: Tui::Color.white)
+    labels << Tui::Label.new("Name: #{theme.name}", fg: Tui::Color.white)
+    labels << Tui::Label.new("Author: #{theme.author}", fg: Tui::Color.white)
 
     unless theme.description.empty?
-      @info_labels << Tui::Label.new("Description: #{theme.description}", fg: Tui::Color.white)
+      labels << Tui::Label.new("Description: #{theme.description}", fg: Tui::Color.white)
     end
 
     unless theme.variant.empty?
-      @info_labels << Tui::Label.new("Variant: #{theme.variant}", fg: Tui::Color.white)
+      labels << Tui::Label.new("Variant: #{theme.variant}", fg: Tui::Color.white)
     end
 
-    @info_labels << Tui::Label.new("") # spacer
+    labels << Tui::Label.new("") # spacer
 
     # Add color palette
     sorted_keys = theme.palette.keys.sort!
@@ -72,20 +76,18 @@ class ThemeBrowser < Tui::App
       label = Tui::Label.new(label_text,
         fg: Tui::Color.rgb(contrast.r.to_i, contrast.g.to_i, contrast.b.to_i),
         bg: Tui::Color.rgb(color.r.to_i, color.g.to_i, color.b.to_i))
-      @info_labels << label
+      # Set max height to 1 line
+      label.constraints = Tui::Constraints.new(max_height: 1)
+      labels << label
     end
+
+    # Add all labels as children
+    labels.each { |label| @info_vbox.add_child(label) }
 
     mark_dirty!
   end
 
   def compose : Array(Tui::Widget)
-    # Create VBox for info content
-    info_vbox = Tui::VBox.new("info_content") do
-      @info_labels.map { |label| label.as(Tui::Widget) }
-    end
-
-    @info_panel.content = info_vbox
-
     # Use HBox for split layout
     hbox = Tui::HBox.new("main") do
       [@list_view.as(Tui::Widget), @info_panel.as(Tui::Widget)]
