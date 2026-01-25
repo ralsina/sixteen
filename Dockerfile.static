@@ -1,7 +1,9 @@
-FROM --platform=${TARGETPLATFORM:-linux/amd64} alpine:3.20 AS build
+FROM --platform=${TARGETPLATFORM:-linux/amd64} alpine:edge AS build
 RUN apk add --no-cache \
     crystal \
     shards \
     yaml-static \
     zlib-static \
+    gc-static \
+    pcre2-static \
     make

@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.8.0] - 2026-01-25
+
+### 🚀 Features
+
+- Add family navigation context to templates
+- Migrate interactive mode from Lime to crystal_tui
+
+### 🐛 Bug Fixes
+
+- Nicer font for the site
+- Support multiple variants
+- Hide missing variants
+- Ensure all theme colors override pico.css defaults
+- Constrain color labels to 1 line height using max_height
+
 ## [0.7.0] - 2026-01-17
 
 ### 🚀 Features
@@ -25,6 +40,10 @@ All notable changes to this project will be documented in this file.
 
 - Add .worktrees/ to gitignore
 - Remove generated site/ directory from version control
+
+### Bump
+
+- Release v0.7.0
 
 ## [0.6.3] - 2025-12-26
 
