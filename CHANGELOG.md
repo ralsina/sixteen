@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.8.1] - 2026-08-23
+
+### 🐛 Bug Fixes
+
+- Remove branch
+- Correct HSL conversion and implement WCAG contrast
+- Complete truncated --render help text
+
+### 🚜 Refactor
+
+- Unify family structs and deduplicate variant logic
+
+### 🧪 Testing
+
+- Add characterization specs for core APIs
+
+### Build
+
+- Cross-compile static binaries, link in minimal containers
+- Exclude aur-sixteen from ameba, fix block parameter names
+
 ## [0.8.0] - 2026-01-25
 
 ### 🚀 Features
@@ -16,6 +37,10 @@ All notable changes to this project will be documented in this file.
 - Hide missing variants
 - Ensure all theme colors override pico.css defaults
 - Constrain color labels to 1 line height using max_height
+
+### Bump
+
+- Release v0.8.0
 
 ## [0.7.0] - 2026-01-17
 
