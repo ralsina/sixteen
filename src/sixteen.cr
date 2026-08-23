@@ -39,19 +39,6 @@ module Sixteen
     end
   end
 
-  struct ThemeFamilyInfo
-    property base_name : String
-    property dark_themes : Array(String)
-    property light_themes : Array(String)
-    property other_variants : Array(String)
-
-    def initialize(@base_name : String)
-      @dark_themes = [] of String
-      @light_themes = [] of String
-      @other_variants = [] of String
-    end
-  end
-
   struct Theme
     include YAML::Serializable
 
@@ -185,57 +172,43 @@ module Sixteen
     }.sort!
   end
 
+  # Sort a theme into the right variant bucket of its family.
+  # Silently skips themes that can't be loaded.
+  private def self.classify_theme(family : ThemeFamily, theme_name : String) : Nil
+    theme = theme(theme_name)
+    case theme.variant
+    when "dark"
+      family.dark_themes << theme_name
+    when "light"
+      family.light_themes << theme_name
+    else
+      family.other_variants << theme_name
+    end
+  rescue
+  end
+
   # Find theme families (groups of related dark/light themes)
   def self.theme_families : Array(ThemeFamily)
     families = Hash(String, ThemeFamily).new
-    themes = available_themes
 
-    themes.each do |theme_name|
-      begin
-        theme = theme(theme_name)
-        base_name = extract_base_name(theme_name)
-
-        families[base_name] ||= ThemeFamily.new(base_name)
-        family = families[base_name]
-
-        case theme.variant
-        when "dark"
-          family.dark_themes << theme_name
-        when "light"
-          family.light_themes << theme_name
-        else
-          family.other_variants << theme_name
-        end
-      rescue
-        # Skip themes that can't be loaded
-      end
+    available_themes.each do |theme_name|
+      base_name = extract_base_name(theme_name)
+      families[base_name] ||= ThemeFamily.new(base_name)
+      classify_theme(families[base_name], theme_name)
     end
 
     families.values.to_a
   end
 
   # Get family info including auto-generated variants
-  def self.theme_family_info(theme_name : String) : ThemeFamilyInfo
+  def self.theme_family_info(theme_name : String) : ThemeFamily
     base_name = extract_base_name(theme_name)
-    info = ThemeFamilyInfo.new(base_name)
+    info = ThemeFamily.new(base_name)
 
-    # Collect existing themes in this family
-    available = available_themes
-    available.each do |name|
+    available_themes.each do |name|
       next if extract_base_name(name) != base_name
 
-      begin
-        theme = theme(name)
-        case theme.variant
-        when "dark"
-          info.dark_themes << name
-        when "light"
-          info.light_themes << name
-        else
-          info.other_variants << name
-        end
-      rescue
-      end
+      classify_theme(info, name)
     end
 
     # Add auto-generated variants to the family lists
@@ -256,30 +229,24 @@ module Sixteen
 
   # Get light variant of a theme (existing or generated)
   def self.light_variant(theme_name : String) : Theme
-    theme = theme_with_fallback(theme_name, "light")
-    return theme if theme.variant == "light"
-
-    # Try to find existing light variant
-    existing_name = find_variant(theme_name, "light")
-    return theme(existing_name) if existing_name
-
-    # Generate by inverting colors
-    theme.invert_for_theme(:light)
-  rescue
-    raise Exception.new("Theme not found: #{theme_name}")
+    find_variant_theme(theme_name, "light")
   end
 
   # Get dark variant of a theme (existing or generated)
   def self.dark_variant(theme_name : String) : Theme
-    theme = theme_with_fallback(theme_name, "dark")
-    return theme if theme.variant == "dark"
+    find_variant_theme(theme_name, "dark")
+  end
 
-    # Try to find existing dark variant
-    existing_name = find_variant(theme_name, "dark")
+  private def self.find_variant_theme(theme_name : String, target : String) : Theme
+    theme = theme_with_fallback(theme_name, target)
+    return theme if theme.variant == target
+
+    # Try to find an existing variant
+    existing_name = find_variant(theme_name, target)
     return theme(existing_name) if existing_name
 
     # Generate by inverting colors
-    theme.invert_for_theme(:dark)
+    theme.invert_for_theme(target == "light" ? :light : :dark)
   rescue
     raise Exception.new("Theme not found: #{theme_name}")
   end

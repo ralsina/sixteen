@@ -22,7 +22,6 @@ module Sixteen
 
     def initialize(@path)
       super()
-      @path = path
       parsed = Hash(String, TemplateFile).from_yaml(File.read("#{path}/config.yaml"))
       self.merge!(parsed)
     end
