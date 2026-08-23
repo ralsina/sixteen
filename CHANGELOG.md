@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.9.0] - 2026-08-23
+
+### 🚀 Features
+
+- Sync base16 themes with tinted-theming/schemes spec-0.11
+
 ## [0.8.1] - 2026-08-23
 
 ### 🐛 Bug Fixes
@@ -22,6 +28,10 @@ All notable changes to this project will be documented in this file.
 
 - Cross-compile static binaries, link in minimal containers
 - Exclude aur-sixteen from ameba, fix block parameter names
+
+### Bump
+
+- Release v0.8.1
 
 ## [0.8.0] - 2026-01-25
 
