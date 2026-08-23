@@ -86,8 +86,8 @@ end
 # Convert to array and sort
 output = families.map do |base_name, themes|
   # Sort themes: dark first, then light, then others
-  sorted_themes = themes.sort_by do |t|
-    case t.variant
+  sorted_themes = themes.sort_by do |theme|
+    case theme.variant
     when "dark"  then 0
     when "light" then 1
     else              2
@@ -96,13 +96,13 @@ output = families.map do |base_name, themes|
 
   {
     "base_name" => base_name,
-    "themes"    => sorted_themes.map { |t|
+    "themes"    => sorted_themes.map { |theme|
       {
-        "name"    => t.name,
-        "author"  => t.author,
-        "slug"    => t.slug,
-        "variant" => t.variant,
-        "palette" => t.palette,
+        "name"    => theme.name,
+        "author"  => theme.author,
+        "slug"    => theme.slug,
+        "variant" => theme.variant,
+        "palette" => theme.palette,
       }
     },
   }

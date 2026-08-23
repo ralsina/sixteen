@@ -3,6 +3,12 @@
 # The point is for the user to remove these configuration records
 # one by one as the reported problems are removed from the code base.
 
+# Directories that are copies of other projects or generated output
+# and should never be linted.
+Excluded:
+  - aur-sixteen
+  - site-scripts/site_gen_assets
+
 # Problems found: 1
 # Run `ameba --only Documentation/DocumentationAdmonition` for details
 Documentation/DocumentationAdmonition:
