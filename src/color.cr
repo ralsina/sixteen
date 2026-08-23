@@ -43,14 +43,27 @@ module Sixteen
       lighter(-amount)
     end
 
-    def contrast(other : Color)
-      l1 = self.hsl[2]
-      l2 = other.hsl[2]
+    # WCAG 2.x relative luminance
+    def relative_luminance : Float64
+      0.2126 * linearize(@r / 255.0) +
+        0.7152 * linearize(@g / 255.0) +
+        0.0722 * linearize(@b / 255.0)
+    end
+
+    # WCAG contrast ratio between this color and another (1.0 to 21.0)
+    def contrast(other : Color) : Float64
+      l1 = relative_luminance
+      l2 = other.relative_luminance
       if l1 > l2
         (l1 + 0.05) / (l2 + 0.05)
       else
         (l2 + 0.05) / (l1 + 0.05)
       end
+    end
+
+    private def linearize(channel : Float64) : Float64
+      return channel / 12.92 if channel <= 0.03928
+      ((channel + 0.055) / 1.055) ** 2.4
     end
 
     def hex : String
@@ -82,7 +95,8 @@ module Sixteen
       t -= 1 if t > 1
       return p + (q - p) * 6 * t if t < 1/6
       return q if t < 1/2
-      p + (q - p) * (2/3 - t) * 6
+      return p + (q - p) * (2/3 - t) * 6 if t < 2/3
+      p
     end
 
     def hsl
