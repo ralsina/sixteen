@@ -146,7 +146,7 @@ Options:
     --list          List available schemes.
     --info          Show information about a scheme.
     --build         Build theme files from a tinted themes style template folder and a scheme.
-    --render        Render a mustache template with a scheme and
+    --render        Render a mustache template with a scheme and print it to stdout.
     --families      Show theme families (dark/light variant groups).
     --light         Use light variant of the specified theme.
     --dark          Use dark variant of the specified theme.
